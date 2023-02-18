@@ -183,3 +183,6 @@ tbody td {
     margin: -20px auto;
 }
 
+.wind {
+    pointer-events: none;
+}

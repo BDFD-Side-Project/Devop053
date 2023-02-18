@@ -12,7 +12,7 @@
             <div class="col">
                 <h4
                     style="font-family: 楷体;margin-bottom: 0px;margin-top: 0px;color:blue;line-height:1.45;">
-                    <strong>水域的大气表面层风速<sup>1</sup></strong>
+                    <strong>水域大气近地层风速廓线<sup>1</sup></strong>
                 </h4>
             </div>
             <div class="col" align="right">
@@ -20,7 +20,7 @@
                     style="font-family: 楷体; background-color: rgb(233, 236, 239);color:blue;border: 0px solid rgb(255, 255, 255);box-shadow:0px 0px;border-radius: 0px;"><strong>计算页面</strong></a>
                 <a href="#" class="btn btn-secondary"
                     style="font-family: 楷体; background-color: rgb(255, 255, 255);color:blue;border: 0px solid rgb(255, 255, 255);box-shadow:0px 0px;border-radius: 0px;"><strong>技术指南</strong></a>
-                <a href="#" class="btn btn-secondary"
+                <a href="/windspeedupdate.html" class="btn btn-secondary"
                     style="font-family: 楷体; background-color: rgb(255, 255, 255);color:blue;border: 0px solid rgb(255, 255, 255);box-shadow:0px 0px;border-radius: 0px;"><strong>更新记录</strong></a>
             </div>
         </div>
@@ -28,7 +28,7 @@
             style="height:24px;padding: 0rem;background-color:rgb(233, 236, 239) ;">
             <span
                 style="font-size:12px;font-family:'Times New Roman',楷体;margin-top:0px;margin-bottom:0px;">
-                当前计算程序版本：202212，最后更新于2022.12
+                当前计算程序版本：202301，最后更新于2023.02
             </span>
         </div>
         <p style="margin-top:15px"></p>
@@ -63,11 +63,11 @@
                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                 <span
                     style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:10px"><i>U</i>的时距
-                    (min)<sup>11</sup></span>
+                    (min)<sup>8 </sup></span>
                 <div style="margin-left:80px">
                     <input type=" text" class="form-control" name="atm"
                         value="{{atm}}"
-                        style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:3px;border-radius:5px">
+                        style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:8px;border-radius:5px">
                 </div>
             </div>
             <div class="input-group">
@@ -92,16 +92,16 @@
             <div class="input-group">
                 <span
                     style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">表面水温
-                    (°C)<sup>12</sup></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    (°C)<sup>9 </sup></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                 <div style="margin-left:4px">
                     <input type=" text" class="form-control" name="Tw"
                         value="{{Tw}}"
-                        style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:3px;border-radius:5px">
+                        style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:8px;border-radius:5px">
                 </div>
                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                 <span
-                    style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:10px">大气表面层的平均气温
-                    (°C)<sup>13</sup></span>
+                    style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:10px">大气近地层的平均位温
+                    (°C)<sup>10</sup></span>
                 <div><input type=" text" class="form-control" name="Taa"
                         value="{{Taa}}"
                         style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:3px;border-radius:5px">
@@ -119,7 +119,7 @@
                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                 <span
                     style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:10px">风速查看的高度范围
-                    (m)<sup>14</sup></span>
+                    (m)<sup>11</sup></span>
                 <div style="margin-left:16px"><input type=" text"
                         class="form-control" name="zu" value="{{zu}}"
                         style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:3px;border-radius:5px">
@@ -129,18 +129,20 @@
             <div style="border: 0.5px solid #CCC;margin-top:5px;">
             </div>
             {% include "calculation/windspeed_tip.html" %}
+            <br /><br />
             <div class="wave">
                 <h5 style="font-family:楷体;margin-bottom:15px;margin-top:15px;"
                     align="right">
                     <button type="submit" name="calculate" value="计 算"
-                        class="btn btn-secondary"
+                        class="btn btn-secondary" id="wind-calc"
                         style="font-family: 楷体;background-color: rgb(230, 230, 230);color:red;width:250px;height:28px;padding-top:0px;"><strong>计&nbsp算
                             (约需数秒，结果见下!)</strong>
                     </button>
-                    <a href="#" class="btn btn-secondary"
+                    <a href="/windspeed.html" class="btn btn-secondary"
                         style="font-family: 楷体; background-color: rgb(230, 230, 230);color:blue;height:28px;padding-top:0px;"><strong>清&nbsp空</strong></a>
-                    <a href="#" class="btn btn-secondary"
-                        style="font-family: 楷体; background-color: rgb(230, 230, 230);color:blue;height:28px;padding-top:0px;"><strong>打&nbsp印</strong></a>
+                    <button
+                        class="btn btn-secondary button-print-or-save-document"
+                        style="font-family: 楷体; background-color: rgb(230, 230, 230);color:blue;height:28px;padding-top:0px;"><strong>打&nbsp印</strong></button>
                     <!-- <button type="button" class="btn btn-secondary"
                         style="font-family: 楷体; background-color: rgb(230, 230, 230);color:blue;height:28px;padding-top:0px;"><strong>打&nbsp印</strong></button> -->
                 </h5>
@@ -152,8 +154,8 @@
 <p style="margin-top:75px"></p>
 <script type="text/javascript"
     src="{{ url_for('static',filename='javascript/windspeed/form_validation.js') }}"></script>
-<script type="text/javascript"
-    src="{{ url_for('static',filename='javascript/pagebreak.js') }}"></script>
+<!-- <script type="text/javascript"
+    src="{{ url_for('static',filename='javascript/pagebreak.js') }}"></script> -->
 <script type="text/javascript"
     src="{{ url_for('static',filename='javascript/print.js') }}"></script>
 <script>

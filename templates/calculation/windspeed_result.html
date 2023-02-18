@@ -2,14 +2,14 @@
  * @Date         : 2022-12-17 21:58:19
  * @Author       : BDFD,bdfd2005@gmail.com
  * @Github       : https://github.com/bdfd
- * @LastEditTime : 2022-12-20 20:07:50
+ * @LastEditTime : 2023-02-15 14:29:22
  * @LastEditors  : BDFD
  * @Description  : 
  * @FilePath     : \templates\calculation\windspeed_result.html
  * Copyright (c) 2022 by BDFD, All Rights Reserved. 
 -->
 <!--        <div class="card">-->
-<div class="card-header pagebreak"
+<div class="card-header"
     style="padding: 0rem;padding-top:0.5rem;padding-bottom:0.5rem;background-color:rgb(233, 236, 239) ;">
     <h5 style="font-family: 楷体; margin-bottom: 0px" align="left">
         <strong>计算结果</strong>
@@ -24,7 +24,7 @@
         <p>{{heading}}</p>
     </div>
     {% if section1 %}
-    <p class="pagebreak" style="margin-bottom: 0px;margin-left: 10px;">
+    <p style="margin-bottom: 0px;margin-left: 10px;">
         ---总说明---</p>
     <ol class="list-group list-group-numbered">
         {% for section in section1 %}
@@ -38,8 +38,8 @@
     {% endif %}
     <br />
     {% if section2 %}
-    <p class="pagebreak" style="margin-bottom: 0px;margin-left: 10px;">
-        ---滨水工的风速计算方法---</p>
+    <p style="margin-bottom: 0px;margin-left: 10px;">
+        ---滨水工计算的风速廓线---</p>
     <ol class="list-group list-group-numbered">
         {% for section in section2 %}
         <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
@@ -61,7 +61,7 @@
     {% endif %}
     <br />
     {% if section3 %}
-    <p class="pagebreak" style="margin-bottom: 0px;margin-left: 10px;">
+    <p style="margin-bottom: 0px;margin-left: 10px;">
         ---港口与航道水文规范 (JTS 145-2015)---</p>
     <ol class="list-group list-group-numbered">
         {% for section in section3 %}
@@ -75,7 +75,7 @@
     {% endif %}
     <br />
     {% if section4 %}
-    <p class="pagebreak" style="margin-bottom: 0px;margin-left: 10px;">
+    <p style="margin-bottom: 0px;margin-left: 10px;">
         ---Shore Protection Manual (SPM 1984)---</p>
     <ol class="list-group list-group-numbered">
         {% for section in section4 %}
@@ -89,7 +89,7 @@
     {% endif %}
     <br />
     {% if section5 %}
-    <p class="pagebreak" style="margin-bottom: 0px;margin-left: 10px;">
+    <p style="margin-bottom: 0px;margin-left: 10px;">
         ---Coastal Engineering Manual (CEM)---</p>
     <ol class="list-group list-group-numbered">
         {% for section in section5 %}
@@ -103,7 +103,7 @@
     {% endif %}
     <br />
     {% if section6 %}
-    <p class="pagebreak" style="margin-bottom: 0px;margin-left: 10px;">
+    <p style="margin-bottom: 0px;margin-left: 10px;">
         ---API RP 2A-WSD---</p>
     <ol class="list-group list-group-numbered">
         {% for section in section6 %}
@@ -117,8 +117,8 @@
     {% endif %}
     <br />
     {% if section7 %}
-    <p class="pagebreak" style="margin-bottom: 0px;margin-left: 10px;">
-        ---结果汇总：{{ wdu }}-min时距U₁₀(m/s)---</p>
+    <p style="margin-bottom: 0px;margin-left: 10px;">
+        ---结果汇总：{{ wdu }}-min时距的U₁₀ (m/s)---</p>
     <table>
         {% for row in section7 %}
         <tr>

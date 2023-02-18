@@ -2,7 +2,7 @@
  * @Date         : 2022-12-12 16:52:33
  * @Author       : BDFD,bdfd2005@gmail.com
  * @Github       : https://github.com/bdfd
- * @LastEditTime : 2022-12-16 15:51:49
+ * @LastEditTime : 2023-02-12 13:50:54
  * @LastEditors  : BDFD
  * @Description  : 
  * @FilePath     : \templates\calculation\windspeed_tip.html
@@ -17,67 +17,46 @@
         style="font-family: 'Times New Roman',楷体;">
         <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
             <div style="margin-left:10px">
-                本计算程序假设大气表面层为距离水面或地面120 m高度范围内的大气边界层。<br>
+                在本计算程序中，大气近地层为水面或地面以上100 m范围内的大气边界层，亦称地表层。<br>
             </div>
         </li>
         <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
             <div style="margin-left:10px">
-                2<br>
+                本计算程序没有根据天气图等压线推算地转风速的功能。请自行推算。<br>
             </div>
         </li>
         <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
             <div style="margin-left:10px">
-                3<br>
+                即水面以上的高度。<br>
             </div>
         </li>
         <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
             <div style="margin-left:10px">
-                4<br>
+                即地面以上的高度。陆域风会随地形运动。在分析陆域风和水域风之间的转换时，本计算程序假设高度为<i>z<sub>w</sub></i>的陆域风速所对应的水域风速距水面高度也为<i>z<sub>w</sub></i>，但风速值可能会不同。<br>
             </div>
         </li>
         <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
             <div style="margin-left:10px">
-                5<br>
+                北半球为正值，南半球为负值，赤道处为零。<br>
             </div>
         </li>
         <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
             <div style="margin-left:10px">
-                6<br>
+                建议平行于风向取值。<br>
             </div>
         </li>
         <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
             <div style="margin-left:10px">
-                对于水域风速，<i>z<sub>w</sub></i>指水面以上的高度。对于陆域风速，<i>z<sub>w</sub></i>指地面以上的高度。
+                仅在需要采用USACE Coastal Engineering Manual
+                (CEM)进行计算时输入该系数；否则不要填。请查阅CEM的Part II (Coastal
+                Hydrodynamics)。该系数的取值范围：(0.3, 1.0)。在地转风速为20
+                m/s、气水温差为零时，其值约为0.65，以作参考。
                 <br>
             </div>
         </li>
         <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
             <div style="margin-left:10px">
-                陆域风会随地形运动。因此，在分析陆域风到水域的转换时，本计算程序假设高度为<i>z<sub>w</sub></i>的陆域风吹至水域以后距水面的高度也为<i>z<sub>w</sub></i>，但风速可能会不同。
-                <br>
-            </div>
-        </li>
-        <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
-            <div style="margin-left:10px">
-                北半球为正值，南半球为负值。
-                <br>
-            </div>
-        </li>
-        <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
-            <div style="margin-left:10px">
-                取值范围：(0.3, 1.0)。在地转风速为20 m/s、气水温差为零时，其值为0.65，以作参考。
-                <br>
-            </div>
-        </li>
-        <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
-            <div style="margin-left:10px">
-                风速时距为获取风速平均值的时间间隔。
-                <br>
-            </div>
-        </li>
-        <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
-            <div style="margin-left:10px">
-                根据需要选择，不要超过本计算程序所假设的大气表面层厚度 (120 m) 。
+                即获取风速平均值的时间段长度。
                 <br>
             </div>
         </li>
@@ -89,7 +68,13 @@
         </li>
         <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
             <div style="margin-left:10px">
-                如果没有可靠数据，建议近似取值：如已知气温的位置较高，取表面温度和已知气温的均值；否则，取已知气温。
+                如果没有可靠数据，请不要在这里输入，本计算程序会根据已知条件近似推算这个平均位温。（注意：在高度基准面以上，空气位温并不等于空气温度。）
+                <br>
+            </div>
+        </li>
+        <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
+            <div style="margin-left:10px">
+                根据需要选择，建议超过近地层内已知气温及风速的高度，但不要超过本计算程序所假设的大气近地层厚度 (100 m)。
                 <br>
             </div>
         </li>

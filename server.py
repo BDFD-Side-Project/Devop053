@@ -2,7 +2,7 @@
 Date         : 2023-01-16 11:31:15
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2023-01-25 14:31:04
+LastEditTime : 2023-02-14 16:29:45
 LastEditors  : BDFD
 Description  : 
 FilePath     : \server.py
@@ -196,7 +196,12 @@ def windspeed():
         return render_template ("windspeed.html",o2=input_dic["o2"], img_stream=result[0], heading=result[1], section1=result[2], section2=result[3], section2_note=result[4], section3=result[5], section4=result[6], section5=result[7], section6=result[8], section7=result[9], ending=result[10], zw_1=input_dic["zw_1"], zw_2=input_dic["zw_2"], zw_3=input_dic["zw_3"], Xlat_3=input_dic["Xlat_3"], Xlat_4=input_dic["Xlat_4"], X_2=input_dic["X_2"], X_3=input_dic["X_3"], Rg_4=input_dic["Rg_4"], beta=input_dic["beta"] ,atm=input_dic["atm"] ,Ta=input_dic["Ta"] ,zt=input_dic["zt"] ,Tw=input_dic["Tw"], Taa=input_dic["Taa"] , wdu=input_dic["wdu"] ,zu=input_dic["zu"])
     else:
         return render_template ("windspeed.html",c1=1)
+
+@app.route("/windspeedupdate.html")
+def windspeedupdate():
+    return render_template("updates/windspeedupdate.html")
+
 if __name__ == "__main__":
     # from waitress import serve
     # serve(app, host="0.0.0.0", port=5000)
-    app.run(host='0.0.0.0', port=6001, debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
