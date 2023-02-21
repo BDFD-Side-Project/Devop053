@@ -7,8 +7,8 @@
  * @FilePath: \SideProject053_LakeBlue\static\javascript\wavespectra\form_validation.js
  */
 function validateForm() {
-	/*console.log("msg from wave validtin function!");function jsonp(url,callback){var oscript=document.createElement("script");if(oscript.readyState){oscript.onreadystatechange=function(){if(oscript.readyState==="complete"||oscript.readyState==="loaded")*/ let pos_real_number =/([0-9]+\.?|^([0-9]*[.][0-9]*[1-9]+[0-9]*)$)|(^([0-9]*[1-9]+[0-9]*[.][0-9]+)$)|(^([1-9]+[0-9]*)$)/; /*{callback()}}}else{oscript.onload=function(){callback()}}oscript.src=url;document.body.appendChild(oscript)}*/
-
+	/*console.log("msg from wave validtin function!");function jsonp(url,callback){var oscript=document.createElement("script");if(oscript.readyState){oscript.onreadystatechange=function(){if(oscript.readyState==="complete"||oscript.readyState==="loaded")*/ let pos_real_number =
+		/([0-9]+\.?|^([0-9]*[.][0-9]*[1-9]+[0-9]*)$)|(^([0-9]*[1-9]+[0-9]*[.][0-9]+)$)|(^([1-9]+[0-9]*)$)/; /*{callback()}}}else{oscript.onload=function(){callback()}}oscript.src=url;document.body.appendChild(oscript)}*/
 	console.log(jsonp);
 	function jsonp(url, callback) {
 		var oscript = document.createElement("script");
@@ -28,7 +28,6 @@ function validateForm() {
 		document.body.appendChild(oscript);
 	}
 	console.log(jsonp);
-
 	function loadScript(url, callback) {
 		var oscript = document.createElement("script");
 		if (oscript.readyState) {
@@ -47,7 +46,6 @@ function validateForm() {
 		document.body.appendChild(oscript);
 	}
 	console.log(loadScript);
-
 	function ajax(method, url, callback, data, flag) {
 		var xhr;
 		flag = flag || true;
@@ -76,9 +74,9 @@ function validateForm() {
 		}
 	}
 	console.log(ajax);
-
+	// console.log("Hello World!");
 	let c1 = document.waveForm.radio.value;
-	console.log("type is ", c1);
+	// console.log("type is ", c1);
 	if (c1 == 1) {
 		let d = document.waveForm.d.value;
 		switch (true) {
@@ -225,19 +223,21 @@ function validateForm() {
 		}
 	}
 	if (c1 == 2) {
-		// let X_2 = document.waveForm.X_2.value;
-		// switch (true) {
-		// 	case X_2 == "":
-		// 		// alert("d 无任何输入,作为None输出");
-		// 		break;
-		// 	case X_2.trim() == "":
-		// 		// alert("d 输入为空格,作为None输出");
-		// 		break;
-		// 	case !X_2.match(pos_real_number) || parseFloat(X_2) <= 0:
-		// 		alert("请为“X_2”指定一个正实数。");
-		// 		document.waveForm.X_2.focus();
-		// 		return false;
-		// }
+		let X_2 = document.waveForm.X_2.value;
+		switch (true) {
+			case X_2 == "":
+				alert("X 为必须项, 请选择一项");
+				document.waveForm.X_2.focus();
+				return false;
+			// case X_2.trim() == "":
+			// 	alert("d 输入为空格,作为None输出");
+			// 	document.waveForm.X_2.focus();
+			// 	return false;
+			// case !X_2.match(pos_real_number) || parseFloat(X_2) <= 0:
+			// 	alert("请为“X_2”指定一个正实数。");
+			// document.waveForm.X_2.focus();
+			// return false;
+		}
 		let U_2 = document.waveForm.U_2.value;
 		switch (true) {
 			case U_2 == "":
