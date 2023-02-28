@@ -226,7 +226,7 @@ function validateForm() {
 		let X_2 = document.waveForm.X_2.value;
 		switch (true) {
 			case X_2 == "":
-				alert("X 为必须项, 请选择一项");
+				alert("请为风距选择一项");
 				document.waveForm.X_2.focus();
 				return false;
 			// case X_2.trim() == "":
