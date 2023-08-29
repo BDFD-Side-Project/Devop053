@@ -2,10 +2,10 @@
 Date         : 2023-01-16 11:31:15
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2023-02-14 16:29:45
+LastEditTime : 2023-08-29 15:49:04
 LastEditors  : BDFD
 Description  : 
-FilePath     : \server.py
+FilePath     : \app.py
 Copyright (c) 2023 by BDFD, All Rights Reserved. 
 '''
 # This is the flask server of waterfrontes.com 滨水工
@@ -200,6 +200,10 @@ def windspeed():
 @app.route("/windspeedupdate.html")
 def windspeedupdate():
     return render_template("updates/windspeedupdate.html")
+
+@app.route("/windspeedhelp.html")
+def windspeedhelp():
+    return render_template("instructions/windspeedhelp.html")
 
 if __name__ == "__main__":
     # from waitress import serve
