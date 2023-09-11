@@ -75,12 +75,15 @@
         而TMA谱既考虑<i>d</i>也考虑<i>X</i>。第一类里的大部分谱均不依赖已知波浪要素。在第二类里，基本Bretschneider谱型主要针对充分成长阶段的风浪，那两个双峰谱却可以考虑涌浪成分。第二类中的谱均不需要d和常规意义上的X。把它们这样分类主要是因为它们有类似的数据需求。因此，在解读计算结果时用户需注意识别这些谱之间的可比性。
       </p>
       <p style="margin-top:0px; margin-bottom:0px">
-        &#12288&#12288第一类中可以输入的参数包括：d, X, Uz, z, γ, HS, Tz,
-        TS。（注意：此处的HS仅用于文圣常谱，其它谱的HS通过谱计算获得。）
+        &#12288&#12288第一类中可以输入的参数包括：<i>d</i>, <i>X</i>, <i>U<sub>z</sub></i>,
+        <i>z</i>, <i>γ</i>, <i>H<sub>S</sub></i>, <i>T<sub>z</sub></i>,
+        <i>T<sub>S</sub></i>。（注意：此处的<i>H<sub>S</sub></i>仅用于文圣常谱，其它谱的<i>H<sub>S</sub></i>通过谱计算获得。）
       </p>
       <p style="margin-top:0px; margin-bottom:0px">
-        &#12288&#12288第二类中可以输入的参数包括：Xmax, Uz, z, γ, HS, Tz, TS,
-        Tp。HS和风要素(Uz和z)这两者，必填其一。
+        &#12288&#12288第二类中可以输入的参数包括：<i>X<sub>max</sub></i>,
+        <i>U<sub>z</sub></i>, <i>z</i>, <i>γ</i>, <i>H<sub>S</sub></i>,
+        <i>T<sub>z</sub></i>, <i>T<sub>S</sub></i>,
+        <i>T<sub>p</sub></i>。<i>H<sub>S</sub></i>和风要素(<i>U<sub>z</sub></i>和<i>z</i>)这两者，必填其一。
       </p>
       <p style="margin-top:0px; margin-bottom:0px">
         &#12288&#12288为了相互比较，滨水工会自动匹配提供的数据并提供能够获取的谱。参数提供得越多，可能得到的谱就会越多。因此，没有必要同时输入所有这些参数。“计算页面”为这些参数提供了注解，用户请仔细阅读。“计算页面”具备提示功能，对于不恰当的参数输入会给出相应提示。
@@ -104,7 +107,7 @@
           <i>T</i><sub><i>m</i>-10</sub>, <i>f<sub>a</sub></i>,
           <i>T</i><sub><i>m</i>01</sub>, <i>f<sub>rms</sub></i>,
           <i>T</i><sub><i>m</i>02</sub></span>.
-        <br />&#12288&#12288除非另有说明, 表中的 <span
+        <br />&#12288&#12288除非另有说明, 结果表中的 <span
           style="font-family: Times New Roman"><i>S</i><sub>max</sub></span>和
         <span
           style="font-family: Times New Roman"><i>f<sub>p</sub></i></span>均为谱计算得到的结果。由于频率域离散化的精度限制，直接计算的
@@ -121,16 +124,16 @@
           style="font-family: Times New Roman"><i>f<sub>p</sub></i></span>并不一定对应<span
           style="font-family: Times New Roman">TMA</span>谱的<span
           style="font-family: Times New Roman"><i>S</i><sub>max</sub></span>。
-        <br />&#12288&#12288对于文圣常谱，表中的<span
+        <br />&#12288&#12288对于文圣常谱，结果表中的<span
           style="font-family: Times New Roman"><i>S</i><sub>max</sub></span>和<span
           style="font-family: Times New Roman"><i>f<sub>p</sub></i></span>均直接从图中读取。
-        <br />&#12288&#12288计算结果中的O-H谱仅为最可能谱型。表中的<span
-          style="font-family: Times New Roman"><i>S</i><sub>max</sub></span>直接从图中读取，<span
+        <br />&#12288&#12288计算结果中的O-H谱仅为最可能谱型。结果表中的<span
+          style="font-family: Times New Roman"><i>S</i><sub>max</sub></span>直接从结果图中读取，<span
           style="font-family: Times New Roman"><i>f<sub>p</sub></i></span>为其低频成分的峰值频率。
         <br />
         &#12288&#12288对于<span
           style="font-family: Times New Roman">sT</span>谱，<span
-          style="font-family: Times New Roman"><i>S</i><sub>max</sub></span>直接从图中读取，<span
+          style="font-family: Times New Roman"><i>S</i><sub>max</sub></span>直接从结果图中读取，<span
           style="font-family: Times New Roman"><i>T<sub>p</sub></i></span>为输入的参数，<span
           style="font-family: Times New Roman"><i>f<sub>p</sub></i></span>为其倒数。<span
           style="font-family: Times New Roman"><i>f<sub>p</sub></i></span>实为主峰频率。
@@ -142,9 +145,13 @@
       <p style="margin-bottom:8px"></p>
       <p
         style="margin-top: 0px;margin-bottom: 15px;line-height: 1.0; font-family:Times New Roman">
-        Bretschneider, C. L., and Tamaye, E. E. (1976) Hurricane Wind and Wave
-        Forecasting Techniques. In: <i>Coastal Engineering Proceedings</i>,
-        1(15).
+        李怡 (2023) <i>海岸及水道工程专题 第1卷（第1版）</i>. 中国出版社
+      </p>
+      <p
+        style="margin-top: 0px;margin-bottom: 15px;line-height: 1.0; font-family:Times New Roman">
+        van Rossum, G., and the Python Development Team (2022) <i>The Python
+          Language Reference (Release 3.9.13)</i>, Python Software Foundation
+        (http://www.python.org)</i>.
       </p>
     </div>
   </div>
