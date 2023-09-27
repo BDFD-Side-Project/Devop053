@@ -1,7 +1,17 @@
+<!--
+ * @Author: BDFD
+ * @Date: 2022-01-29 16:07:15
+ * @LastEditTime: 2022-07-07 13:09:18
+ * @LastEditors: BDFD
+ * @Description: 
+ * @FilePath: \SideProject053_LakeBlue\templates\instructions\gumbelhelp.html
+-->
 {% extends "layout/user_guide_base2.html" %} {% block content %}
 
 <head>
-    <script src="http://fred-wang.github.io/mathjax.js/mpadded-min.js"></script>
+    <script type="text/javascript" async
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <!-- <script src="http://fred-wang.github.io/mathjax.js/mpadded-min.js"></script> -->
     <style>
         html {
             line-height: 1.15;
@@ -212,8 +222,7 @@
                 </span>
             </div>
             <p
-                style="margin-top: 0px;margin-bottom: 0px;font-family:'Times New Roman',楷体;">
-                <br />
+                style="margin-top: 0px;margin-bottom: 0px;font-family:'Times New Roman',楷体;"><br />
                 &#12288&#12288<span
                     style="font-family: Times New Roman">Gumbel</span>
                 分布是广义极值概率分布（或称<span
@@ -941,45 +950,7 @@
                     align="left">
                     <span
                         style="float:right; font-family: Times New Roman">(12)</span>
-                    <math xmlns="http://www.w3.org/1998/Math/MathML">
-                        <mi>T</mi>
-                        <mo>=</mo>
-                        <mfrac>
-                            <mn>1</mn>
-                            <mrow>
-                                <msub>
-                                    <mi>G</mi>
-                                    <mrow>
-                                        <mi>X</mi>
-                                    </mrow>
-                                </msub>
-                                <mo stretchy="false">(</mo>
-                                <mi>x</mi>
-                                <mo stretchy="false">)</mo>
-                            </mrow>
-                        </mfrac>
-                        <mo>=</mo>
-                        <mfrac>
-                            <mn>1</mn>
-                            <mrow>
-                                <mn>1</mn>
-                                <mo>−</mo>
-                                <msup>
-                                    <mi>e</mi>
-                                    <mrow>
-                                        <mo>−</mo>
-                                        <msup>
-                                            <mi>e</mi>
-                                            <mrow>
-                                                <mo>−</mo>
-                                                <mi>y</mi>
-                                            </mrow>
-                                        </msup>
-                                    </mrow>
-                                </msup>
-                            </mrow>
-                        </mfrac>
-                    </math>
+                   <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>T</mi><mo>=</mo><mfrac><mn>1</mn><mrow><msub><mi>G</mi><mrow><mi>X</mi></mrow></msub><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mfrac><mo>=</mo><mfrac><mn>1</mn><mrow><mn>1</mn><mo>−</mo><msup><mi>e</mi><mrow><mo>−</mo><msup><mi>e</mi><mrow><mo>−</mo><mi>y</mi></mrow></msup></mrow></msup></mrow></mfrac></math>
                 </div>
             </span>
             <p style="margin-top: 0px;margin-bottom: 0px">
@@ -1096,8 +1067,7 @@
                     class="type1">12</span>)，<span
                     style="font-family: Times New Roman"><i>μ<sub>y</sub></i></span>极限值所对应的回归期为<span
                     class="type1">2.3276</span>（单位略）。将公式(<span
-                    style="font-family: Times New Roman">13</span>)和(<span
-                    class="type1">14</span>)带入公式(<span
+                    style="font-family: Times New Roman">13</span>)和(<span class="type1">14</span>)带入公式(<span
                     style="font-family: Times New Roman">8</span>)，可得到
                 <span style="font-family: Times New Roman"><i>X</i></span> 和
                 <span style="font-family: Times New Roman"><i>Y</i></span>
@@ -2059,13 +2029,11 @@
                     style="font-family: Times New Roman">Gumbel</span> 变量值；
             </p>
             <p style="margin-top: 0px;margin-bottom: 0px">
-                &#12288&#12288&#12288&#12288 • 在最大值模式中，由公式(<span
-                    class="type1">11</span>)获得对应的 <span
+                &#12288&#12288&#12288&#12288 • 在最大值模式中，由公式(<span class="type1">11</span>)获得对应的 <span
                     style="font-family: Times New Roman"><i>y</i></span> 值
             </p>
             <p style="margin-top: 0px;margin-bottom: 0px">
-                &#12288&#12288&#12288&#12288 • 在最小值模式中，由公式(<span
-                    class="type1">24</span>)获得对应的 <span
+                &#12288&#12288&#12288&#12288 • 在最小值模式中，由公式(<span class="type1">24</span>)获得对应的 <span
                     style="font-family: Times New Roman"><i>w</i></span> 值
             </p>
             <p style="margin-top: 0px;margin-bottom: 0px">&#12288&#12288 4) 由
@@ -2078,16 +2046,14 @@
             <p style="margin-top: 0px;margin-bottom: 0px">
                 &#12288&#12288&#12288&#12288 • 在最大值模式中，采用 <span
                     class="type1"><i>X</i></span> 和 <span
-                    style="font-family: Times New Roman"><i>Y</i></span>
-                的关系式，如公式<span
+                    style="font-family: Times New Roman"><i>Y</i></span> 的关系式，如公式<span
                     style="font-family: Times New Roman">(8)</span>或<span
                     style="font-family: Times New Roman">(15)</span>
             </p>
             <p style="margin-top: 0px;margin-bottom: 0px">
                 &#12288&#12288&#12288&#12288 • 在最小值模式中，采用 <span
                     class="type1"><i>X</i></span> 和 <span
-                    style="font-family: Times New Roman"><i>W</i></span>
-                的关系式，如公式<span
+                    style="font-family: Times New Roman"><i>W</i></span> 的关系式，如公式<span
                     style="font-family: Times New Roman">(25)</span>或<span
                     style="font-family: Times New Roman">(26)</span>
             </p>
@@ -2120,191 +2086,15 @@
     <img src="../static/imgs/guuse/formula29.png" alt="Gumbel Formula 29"><br /> -->
                     <span
                         style="float:right; font-family: Times New Roman">(27)</span>
-                    <math xmlns="http://www.w3.org/1998/Math/MathML">
-                        <msub>
-                            <mrow>
-                                <mover>
-                                    <mi>μ</mi>
-                                    <mo stretchy="false">^</mo>
-                                </mover>
-                            </mrow>
-                            <mrow>
-                                <mi>x</mi>
-                            </mrow>
-                        </msub>
-                        <mo>=</mo>
-                        <mfrac>
-                            <mn>1</mn>
-                            <mi>n</mi>
-                        </mfrac>
-                        <munderover>
-                            <mo data-mjx-texclass="OP">∑</mo>
-                            <mrow>
-                                <mi>i</mi>
-                                <mo>=</mo>
-                                <mn>1</mn>
-                            </mrow>
-                            <mrow>
-                                <mi>n</mi>
-                            </mrow>
-                        </munderover>
-                        <msub>
-                            <mi>x</mi>
-                            <mrow>
-                                <mi>i</mi>
-                            </mrow>
-                        </msub>
-                    </math>
-                    <br />
+                    <math xmlns="http://www.w3.org/1998/Math/MathML" ><msub><mrow><mover><mi>μ</mi><mo stretchy="false">^</mo></mover></mrow><mrow><mi>x</mi></mrow></msub><mo>=</mo><mfrac><mn>1</mn><mi>n</mi></mfrac><munderover><mo data-mjx-texclass="OP">∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mrow><mi>n</mi></mrow></munderover><msub><mi>x</mi><mrow><mi>i</mi></mrow></msub></math>
+<br />
                     <span
                         style="float:right; font-family: Times New Roman">(28)</span>
-                    <math xmlns="http://www.w3.org/1998/Math/MathML">
-                        <msubsup>
-                            <mrow>
-                                <mover>
-                                    <mi>σ</mi>
-                                    <mo stretchy="false">^</mo>
-                                </mover>
-                            </mrow>
-                            <mrow>
-                                <mi>x</mi>
-                            </mrow>
-                            <mrow>
-                                <mn>2</mn>
-                            </mrow>
-                        </msubsup>
-                        <mo>=</mo>
-                        <mfrac>
-                            <mn>1</mn>
-                            <mrow>
-                                <mi>n</mi>
-                                <mo>−</mo>
-                                <mn>1</mn>
-                            </mrow>
-                        </mfrac>
-                        <munderover>
-                            <mo data-mjx-texclass="OP">∑</mo>
-                            <mrow>
-                                <mi>i</mi>
-                                <mo>=</mo>
-                                <mn>1</mn>
-                            </mrow>
-                            <mrow>
-                                <mi>n</mi>
-                            </mrow>
-                        </munderover>
-                        <msup>
-                            <mrow data-mjx-texclass="INNER">
-                                <mo data-mjx-texclass="OPEN">(</mo>
-                                <msub>
-                                    <mi>x</mi>
-                                    <mrow>
-                                        <mi>i</mi>
-                                    </mrow>
-                                </msub>
-                                <mo>−</mo>
-                                <msub>
-                                    <mrow>
-                                        <mover>
-                                            <mi>μ</mi>
-                                            <mo stretchy="false">^</mo>
-                                        </mover>
-                                    </mrow>
-                                    <mrow>
-                                        <mi>x</mi>
-                                    </mrow>
-                                </msub>
-                                <mo data-mjx-texclass="CLOSE">)</mo>
-                            </mrow>
-                            <mrow>
-                                <mn>2</mn>
-                            </mrow>
-                        </msup>
-                    </math>
+                   <math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mover><mi>σ</mi><mo stretchy="false">^</mo></mover></mrow><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msubsup><mo>=</mo><mfrac><mn>1</mn><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></mfrac><munderover><mo data-mjx-texclass="OP">∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mrow><mi>n</mi></mrow></munderover><msup><mrow data-mjx-texclass="INNER"><mo data-mjx-texclass="OPEN">(</mo><msub><mi>x</mi><mrow><mi>i</mi></mrow></msub><mo>−</mo><msub><mrow><mover><mi>μ</mi><mo stretchy="false">^</mo></mover></mrow><mrow><mi>x</mi></mrow></msub><mo data-mjx-texclass="CLOSE">)</mo></mrow><mrow><mn>2</mn></mrow></msup></math>
                     <br />
                     <span
                         style="float:right; font-family: Times New Roman">(29)</span>
-                    <math xmlns="http://www.w3.org/1998/Math/MathML">
-                        <msub>
-                            <mrow>
-                                <mover>
-                                    <mi>γ</mi>
-                                    <mo stretchy="false">^</mo>
-                                </mover>
-                            </mrow>
-                            <mrow>
-                                <mi>x</mi>
-                            </mrow>
-                        </msub>
-                        <mo>=</mo>
-                        <mfrac>
-                            <mi>n</mi>
-                            <mrow>
-                                <mo stretchy="false">(</mo>
-                                <mi>n</mi>
-                                <mo>−</mo>
-                                <mn>1</mn>
-                                <mo stretchy="false">)</mo>
-                                <mo stretchy="false">(</mo>
-                                <mi>n</mi>
-                                <mo>−</mo>
-                                <mn>2</mn>
-                                <mo stretchy="false">)</mo>
-                                <msubsup>
-                                    <mrow>
-                                        <mover>
-                                            <mi>σ</mi>
-                                            <mo stretchy="false">^</mo>
-                                        </mover>
-                                    </mrow>
-                                    <mrow>
-                                        <mi>x</mi>
-                                    </mrow>
-                                    <mrow>
-                                        <mn>3</mn>
-                                    </mrow>
-                                </msubsup>
-                            </mrow>
-                        </mfrac>
-                        <munderover>
-                            <mo data-mjx-texclass="OP">∑</mo>
-                            <mrow>
-                                <mi>i</mi>
-                                <mo>=</mo>
-                                <mn>1</mn>
-                            </mrow>
-                            <mrow>
-                                <mi>n</mi>
-                            </mrow>
-                        </munderover>
-                        <msup>
-                            <mrow data-mjx-texclass="INNER">
-                                <mo data-mjx-texclass="OPEN">(</mo>
-                                <msub>
-                                    <mi>x</mi>
-                                    <mrow>
-                                        <mi>i</mi>
-                                    </mrow>
-                                </msub>
-                                <mo>−</mo>
-                                <msub>
-                                    <mrow>
-                                        <mover>
-                                            <mi>μ</mi>
-                                            <mo stretchy="false">^</mo>
-                                        </mover>
-                                    </mrow>
-                                    <mrow>
-                                        <mi>x</mi>
-                                    </mrow>
-                                </msub>
-                                <mo data-mjx-texclass="CLOSE">)</mo>
-                            </mrow>
-                            <mrow>
-                                <mn>3</mn>
-                            </mrow>
-                        </msup>
-                    </math>
+                    <math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mover><mi>γ</mi><mo stretchy="false">^</mo></mover></mrow><mrow><mi>x</mi></mrow></msub><mo>=</mo><mfrac><mi>n</mi><mrow><mo stretchy="false">(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>n</mi><mo>−</mo><mn>2</mn><mo stretchy="false">)</mo><msubsup><mrow><mover><mi>σ</mi><mo stretchy="false">^</mo></mover></mrow><mrow><mi>x</mi></mrow><mrow><mn>3</mn></mrow></msubsup></mrow></mfrac><munderover><mo data-mjx-texclass="OP">∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mrow><mi>n</mi></mrow></munderover><msup><mrow data-mjx-texclass="INNER"><mo data-mjx-texclass="OPEN">(</mo><msub><mi>x</mi><mrow><mi>i</mi></mrow></msub><mo>−</mo><msub><mrow><mover><mi>μ</mi><mo stretchy="false">^</mo></mover></mrow><mrow><mi>x</mi></mrow></msub><mo data-mjx-texclass="CLOSE">)</mo></mrow><mrow><mn>3</mn></mrow></msup></math>
                 </div>
             </span>
             <p style="margin-top: 0px;margin-bottom: 0px">其中,
@@ -2320,9 +2110,7 @@
                             <mi>x</mi>
                         </mrow>
                     </msub>
-                </math>为<span
-                    class="type1"><i>μ<sub>x</sub></i></span>的估计值，<math
-                    xmlns="http://www.w3.org/1998/Math/MathML">
+                </math>为<span class="type1"><i>μ<sub>x</sub></i></span>的估计值，<math xmlns="http://www.w3.org/1998/Math/MathML">
                     <msub>
                         <mrow>
                             <mover>
@@ -2334,9 +2122,7 @@
                             <mi>x</mi>
                         </mrow>
                     </msub>
-                </math>为<span
-                    class="type1"><i>σ<sub>x</sub></i></span>的估计值，<math
-                    xmlns="http://www.w3.org/1998/Math/MathML">
+                </math>为<span class="type1"><i>σ<sub>x</sub></i></span>的估计值，<math xmlns="http://www.w3.org/1998/Math/MathML">
                     <msub>
                         <mrow>
                             <mover>
@@ -2482,8 +2268,7 @@
             <br />
             <h3
                 style="margin-bottom: 0px;font-family:'Times New Roman',楷体;font-size: 18px;font-weight:bold">
-                <span style="font-family: Times New Roman">2.2</span>&#8194<span
-                    style="font-family: Times New Roman">Gumbel</span> 分布的求解
+                <span style="font-family: Times New Roman">2.2</span>&#8194<span style="font-family: Times New Roman">Gumbel</span> 分布的求解
             </h3>
             <p style="margin-top: 0px;margin-bottom: 0px">
                 &#12288&#12288在得到<span
@@ -2500,12 +2285,10 @@
                 <span class="type1">2</span> 步直接采用<span
                     style="font-family: Times New Roman"><i>μ<sub>y</sub></i></span>
                 和
-                <span class="type1"><i>σ<sub>y</sub></i></span> 的极限值，即公式(<span
-                    style="font-family: Times New Roman">13</span>)和(<span
+                <span class="type1"><i>σ<sub>y</sub></i></span> 的极限值，即公式(<span style="font-family: Times New Roman">13</span>)和(<span
                     class="type1">14</span>)，在第 <span
                     style="font-family: Times New Roman">4</span> 步由公式(<span
-                    style="font-family: Times New Roman">15</span>)或(<span
-                    class="type1">26</span>)获得不同回归期下物理量的值。这样得到的 <span
+                    style="font-family: Times New Roman">15</span>)或(<span class="type1">26</span>)获得不同回归期下物理量的值。这样得到的 <span
                     style="font-family: Times New Roman"> Gumbel</span> 分布称为极限理论
                 <span class="type1">Gumbel</span> 分布。
             </p>
@@ -2772,8 +2555,7 @@
             <br />
             <h3
                 style="margin-bottom: 0px;font-family:'Times New Roman',楷体;font-size: 18px;font-weight:bold">
-                <span
-                    style="font-family: Times New Roman">2.3</span>&#8194分布的拟合检验
+                <span style="font-family: Times New Roman">2.3</span>&#8194分布的拟合检验
             </h3>
             <p style="margin-top: 0px;margin-bottom: 0px">
                 &#12288&#12288如果直接处理所提供的样本，滨水工为两种理论
@@ -3099,8 +2881,7 @@
                     class="type1">200</span> 间展示。如果 <span
                     style="font-family: times new roman;font-style: italic;">T</span>
                 =
-                <span style="font-family: Times New Roman">1</span>, 由公式(<span
-                    class="type1">8</span>)和(<span
+                <span style="font-family: Times New Roman">1</span>, 由公式(<span class="type1">8</span>)和(<span
                     style="font-family: Times New Roman">12</span>)，在理论上，当
                 <span
                     style="font-family: times new roman;font-style: italic;">y</span><span
@@ -3137,7 +2918,6 @@
             <h3
                 style="margin-bottom: 0px;font-family:'Times New Roman',楷体;font-size: 18px;font-weight:bold">
                 参考文献</h3>
-            <p style="margin-bottom:8px"></p>
             <p style="margin-top: 0px;margin-bottom: 15px;line-height: 1.0;">
                 <span style="font-family: Times New Roman">Cunnane, C.
                     (1978) Unbiased
