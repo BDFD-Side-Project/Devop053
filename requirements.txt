@@ -23,6 +23,7 @@ scikit-learn
 scipy
 seaborn
 six
+tabulate
 threadpoolctl
 tqdm
 Werkzeug
