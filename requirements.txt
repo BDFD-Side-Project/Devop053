@@ -2,7 +2,7 @@
 colorama
 contourpy
 cycler
-execdata
+execdata==2.0.1
 Flask
 fonttools
 gunicorn
