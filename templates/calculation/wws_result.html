@@ -1,0 +1,151 @@
+<!--
+ * @Date         : 2022-12-17 21:58:19
+ * @Author       : BDFD,bdfd2005@gmail.com
+ * @Github       : https://github.com/bdfd
+ * @LastEditTime : 2023-02-15 14:29:22
+ * @LastEditors  : BDFD
+ * @Description  : 
+ * @FilePath     : \templates\calculation\windspeed_result.html
+ * Copyright (c) 2022 by BDFD, All Rights Reserved. 
+-->
+<!--        <div class="card">-->
+<div class="card-header"
+    style="padding: 0rem;padding-top:0.5rem;padding-bottom:0.5rem;background-color:rgb(233, 236, 239) ;">
+    <h5 style="font-family: 楷体; margin-bottom: 0px" align="left">
+        <strong>计算结果</strong>
+    </h5>
+</div>
+<!-- <div class="wave-body" style="font-family: 'Times New Roman',楷体;"> -->
+<div class="card-body"
+    style="margin-left:10px;font-family: 'Times New Roman',楷体;font-size: 14px;">
+    <img onerror='this.style.display = "none"'
+        src="data:image/png;base64, {{ img_stream }}" />
+    <div>
+        <p>{{heading}}</p>
+    </div>
+    {% if section1 %}
+    <p style="margin-bottom: 0px;margin-left: 10px;">
+        ---总说明---</p>
+    <ol class="list-group list-group-numbered">
+        {% for section in section1 %}
+        <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
+            <div style="margin-left:10px">
+                {{section}}
+            </div>
+        </li>
+        {% endfor %}
+    </ol>
+    {% endif %}
+    <br />
+    {% if section2 %}
+    <p style="margin-bottom: 0px;margin-left: 10px;">
+        ---滨水工计算的风速廓线---</p>
+    <ol class="list-group list-group-numbered">
+        {% for section in section2 %}
+        <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
+            <div style="margin-left:10px">
+                {{section}}
+            </div>
+        </li>
+        {% endfor %}
+    </ol>
+    {% endif %}
+    {% if section2_note %}
+    {% for section in section2_note %}
+    <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
+        <div style="margin-left:30px">
+            {{section}}
+        </div>
+    </li>
+    {% endfor %}
+    {% endif %}
+    <br />
+    {% if section3 %}
+    <p style="margin-bottom: 0px;margin-left: 10px;">
+        ---港口与航道水文规范 (JTS 145-2015)---</p>
+    <ol class="list-group list-group-numbered">
+        {% for section in section3 %}
+        <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
+            <div style="margin-left:10px">
+                {{section}}
+            </div>
+        </li>
+        {% endfor %}
+    </ol>
+    {% endif %}
+    <br />
+    {% if section4 %}
+    <p style="margin-bottom: 0px;margin-left: 10px;">
+        ---Shore Protection Manual (SPM 1984)---</p>
+    <ol class="list-group list-group-numbered">
+        {% for section in section4 %}
+        <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
+            <div style="margin-left:10px">
+                {{section}}
+            </div>
+        </li>
+        {% endfor %}
+    </ol>
+    {% endif %}
+    <br />
+    {% if section5 %}
+    <p style="margin-bottom: 0px;margin-left: 10px;">
+        ---Coastal Engineering Manual (CEM)---</p>
+    <ol class="list-group list-group-numbered">
+        {% for section in section5 %}
+        <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
+            <div style="margin-left:10px">
+                {{section}}
+            </div>
+        </li>
+        {% endfor %}
+    </ol>
+    {% endif %}
+    <br />
+    {% if section6 %}
+    <p style="margin-bottom: 0px;margin-left: 10px;">
+        ---API RP 2A-WSD---</p>
+    <ol class="list-group list-group-numbered">
+        {% for section in section6 %}
+        <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
+            <div style="margin-left:10px">
+                {{section}}
+            </div>
+        </li>
+        {% endfor %}
+    </ol>
+    {% endif %}
+    <br />
+    {% if section7 %}
+    <p style="margin-bottom: 0px;margin-left: 10px;">
+        ---结果汇总：{{ wdu }}-min时距的U₁₀ (m/s)---</p>
+    <table>
+        {% for row in section7 %}
+        <tr>
+            {% if row[2] %}
+            <td
+                style="width: 120px; text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+                {{row[0]}}</td>
+            <td
+                style="width: 110px; text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+                {{row[1]}}</td>
+            <td
+                style="width: 100px; text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+                {{row[2]}}</td>
+            {% else %}
+            <td
+                style="width: 120px; text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+                {{row[0]}}</td>
+            <td style="width: 210px; text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;"
+                colspan="2">
+                {{row[1]}}</td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+    <br />
+    <div>
+        <p>{{ending}}</p>
+    </div>
+</div>

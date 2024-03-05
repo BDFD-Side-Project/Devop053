@@ -1,0 +1,67 @@
+<!--
+ * @Date         : 2022-12-12 16:52:33
+ * @Author       : BDFD,bdfd2005@gmail.com
+ * @Github       : https://github.com/bdfd
+ * @LastEditTime : 2024-03-05 11:18:49
+ * @LastEditors  : <BDFD>
+ * @Description  : 
+ * @FilePath     : \templates\calculation\wws_tip.html
+ * Copyright (c) 2022 by BDFD, All Rights Reserved. 
+-->
+<div class="tips" style="margin-top:0px;font-size:12px">
+    <p
+        style="margin-left:10px;font-family: 'Times New Roman',楷体;margin-bottom: 0px;">
+        注：
+    </p>
+    <ol class="list-group list-group-numbered"
+        style="font-family: 'Times New Roman',楷体;">
+        <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
+            <div style="margin-left:10px">
+                即获取风速平均值的时间段长度。<br>
+            </div>
+        </li>
+        <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
+            <div style="margin-left:10px">
+                本计算程序考虑两种近似推算方法，一个是基于近似封闭水域和均匀水深假设的高度简化计算，另一个是结合水深剖面的逐段推算。前者见于《港口与航道水文规范》(JTS
+                145-2015) 和《堤防工程设计规范》(GB 50286-2013)。后者可用于上风向非常开阔、无掩护的水域。<br>
+            </div>
+        </li>
+        <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
+            <div style="margin-left:10px">
+                来风向与岸线法线的夹角。（如来风向垂直于岸线，该夹角为零。）<br>
+            </div>
+        </li>
+        <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
+            <div style="margin-left:10px">
+                用于结合水深剖面的逐段推算。风壅增水为零的位置，典型如大陆架边缘等。这个位置并不一定就是风距。如果没有可靠数据，建议不要使用。<br>
+            </div>
+        </li>
+        <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
+            <div style="margin-left:10px">
+                即水深点与静水面接岸处的距离。基点位于静水面接岸处。不要输入基点。由岸向水逐个输入。如果水域底坡为恒定坡，仅输入风壅增水假设为零的位置。数据格式为间隔的数值和逗号，由数值起始，并以数值结束。必须输入半角的逗号，不能用全角的逗号。示例：10,
+                15., 18.3,..., 8.0, 21
+                <br>
+            </div>
+        </li>
+        <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
+            <div style="margin-left:10px">
+                基点位置的水深已默认为零。不要输入基点。由岸向水逐个输入，与以上水深点的位置一一对应。如果水域底坡为恒定坡，仅输入风壅增水假设为零位置的水深。格式见以上第4条。
+                <br>
+            </div>
+        </li>
+        <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
+            <div style="margin-left:10px">
+                仅用于结合水深剖面的逐段推算。JTS 145-2015 和 GB 50286-2013采用
+                3.6×10<sup>-6</sup>。如果不输入，程序会自动采用 3.6×10<sup>-6</sup>。
+                <br>
+            </div>
+        </li>
+        <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
+            <div style="margin-left:10px">
+                必须在水深剖面的范围内。
+
+                <br>
+            </div>
+        </li>
+    </ol>
+</div>

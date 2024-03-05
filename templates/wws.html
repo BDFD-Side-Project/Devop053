@@ -1,0 +1,164 @@
+{% extends "./layout/calculation_base.html" %} {% block content %}
+
+<link rel="stylesheet" href="../static/styles/windspeed.css">
+<link rel="stylesheet" href="../static/styles/output.css">
+<link rel="stylesheet" href="../static/styles/gu_output.css">
+<link href="{{ url_for('static',filename='styles/button.css') }}"
+    rel="stylesheet" type="text/css" />
+<!--<div class="card">-->
+<div class="row ">
+    <div class="col-md-6 m-auto">
+        <div class="row">
+            <div class="col">
+                <h4
+                    style="font-family: 楷体;margin-bottom: 0px;margin-top: 0px;color:blue;line-height:1.45;">
+                    <strong>风浪要素和风壅增水推算</strong>
+                </h4>
+            </div>
+            <div class="col" align="right">
+                <a href="#" class="btn btn-secondary"
+                    style="font-family: 楷体; background-color: rgb(233, 236, 239);color:blue;border: 0px solid rgb(255, 255, 255);box-shadow:0px 0px;border-radius: 0px;"><strong>计算页面</strong></a>
+                <a href="/wwshelp.html" class="btn btn-secondary"
+                    style="font-family: 楷体; background-color: rgb(255, 255, 255);color:blue;border: 0px solid rgb(255, 255, 255);box-shadow:0px 0px;border-radius: 0px;"><strong>技术指南</strong></a>
+                <a href="/wwsupdate.html" class="btn btn-secondary"
+                    style="font-family: 楷体; background-color: rgb(255, 255, 255);color:blue;border: 0px solid rgb(255, 255, 255);box-shadow:0px 0px;border-radius: 0px;"><strong>更新记录</strong></a>
+            </div>
+        </div>
+        <div class="card-header" align="right"
+            style="height:24px;padding: 0rem;background-color:rgb(233, 236, 239) ;">
+            <span
+                style="font-size:12px;font-family:'Times New Roman',楷体;margin-top:0px;margin-bottom:0px;">
+                计算程序版本：202403
+            </span>
+        </div>
+        <p style="margin-top:15px"></p>
+        <div class="card-header"
+            style="padding: 0rem;padding-top:0.5rem;padding-bottom:0.5rem;background-color:rgb(233, 236, 239) ;">
+            <h5 style="font-family: 楷体; margin-bottom: 0px" align="left">
+                <strong>参数输入</strong>
+            </h5>
+        </div>
+        <form class="form" method="POST" action="#"
+            onsubmit="return validateForm()" id="waveForm" name="waveForm"
+            style="font-size:14px">
+            <div class="input-group">
+                <span
+                    style="font-family:楷体;font-size:14px;margin-left:6px">项目描述（选填）&nbsp&nbsp</span>
+                <div>
+                    <input type=" text" class="form-control" name="mingzi"
+                        value="{{mingzi}}"
+                        style="height:25px;width:475px;font-size:14px;margin-left:10px;border-radius:5px;font-family:'Times New Roman',楷体;">
+                </div>
+            </div>
+            {% include "calculation/windspeed_table_alternative.html" %}
+            <div class="input-group">
+                <span
+                    style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px"><i>U</i>
+                    (m/s)</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <div>
+                    <input type=" text" class="form-control" name="beta"
+                        value="{{beta}}"
+                        style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:3px;border-radius:5px">
+                </div>
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <span
+                    style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:10px"><i>U</i>的时距
+                    (min)<sup>8 </sup></span>
+                <div style="margin-left:80px">
+                    <input type=" text" class="form-control" name="atm"
+                        value="{{atm}}"
+                        style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:8px;border-radius:5px">
+                </div>
+            </div>
+            <div class="input-group">
+                <span
+                    style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">现场水域已知气温
+                    (°C)</span>
+                <div style="margin-left:1px">
+                    <input type=" text" class="form-control" name="Ta"
+                        value="{{Ta}}"
+                        style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:3px;border-radius:5px">
+                </div>
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <span
+                    style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:10px">该已知气温距水面的高度
+                    (m)
+                </span>
+                <div><input type=" text" class="form-control" name="zt"
+                        value="{{zt}}"
+                        style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:3px;border-radius:5px">
+                </div>
+            </div>
+            <div class="input-group">
+                <span
+                    style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">表面水温
+                    (°C)<sup>9 </sup></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <div style="margin-left:4px">
+                    <input type=" text" class="form-control" name="Tw"
+                        value="{{Tw}}"
+                        style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:8px;border-radius:5px">
+                </div>
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <span
+                    style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:10px">大气近地层的平均位温
+                    (°C)<sup>10</sup></span>
+                <div><input type=" text" class="form-control" name="Taa"
+                        value="{{Taa}}"
+                        style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:3px;border-radius:5px">
+                </div>
+            </div>
+            <div class="input-group">
+                <span
+                    style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">所求风速的时距
+                    (min)</span>&nbsp
+                <div style="margin-left:1px">
+                    <input type=" text" class="form-control" name="wdu"
+                        value="{{wdu}}"
+                        style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:3px;border-radius:5px">
+                </div>
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <span
+                    style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:10px">风速查看的高度范围
+                    (m)<sup>11</sup></span>
+                <div style="margin-left:16px"><input type=" text"
+                        class="form-control" name="zu" value="{{zu}}"
+                        style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:3px;border-radius:5px">
+                </div>
+            </div>
+            <input type="hidden" name="c1" value={{c1}}>
+            <div style="border: 0.5px solid #CCC;margin-top:5px;">
+            </div>
+            {% include "calculation/wws_tip.html" %}
+            <br /><br />
+            <div class="wave">
+                <h5 style="font-family:楷体;margin-bottom:15px;margin-top:15px;"
+                    align="right">
+                    <button type="submit" name="calculate" value="计 算"
+                        class="btn btn-secondary" id="wind-calc"
+                        style="font-family: 楷体;background-color: rgb(230, 230, 230);color:red;width:250px;height:28px;padding-top:0px;"><strong>计&nbsp算
+                            (约需数秒，结果见下!)</strong>
+                    </button>
+                    <a href="/wws.html" class="btn btn-secondary"
+                        style="font-family: 楷体; background-color: rgb(230, 230, 230);color:blue;height:28px;padding-top:0px;"><strong>清&nbsp空</strong></a>
+                    <button
+                        class="btn btn-secondary button-print-or-save-document"
+                        style="font-family: 楷体; background-color: rgb(230, 230, 230);color:blue;height:28px;padding-top:0px;"><strong>打&nbsp印</strong></button>
+                    <!-- <button type="button" class="btn btn-secondary"
+                        style="font-family: 楷体; background-color: rgb(230, 230, 230);color:blue;height:28px;padding-top:0px;"><strong>打&nbsp印</strong></button> -->
+                </h5>
+            </div>
+        </form>
+        {% include "calculation/wws_result.html" %}
+    </div>
+</div>
+<p style="margin-top:75px"></p>
+<script type="text/javascript"
+    src="{{ url_for('static',filename='javascript/windspeed/form_validation.js') }}"></script>
+<!-- <script type="text/javascript"
+    src="{{ url_for('static',filename='javascript/pagebreak.js') }}"></script> -->
+<script type="text/javascript"
+    src="{{ url_for('static',filename='javascript/print.js') }}"></script>
+<script>
+    eval(function (p, a, c, k, e, r) { e = function (c) { return c.toString(36) }; if ('0'.replace(0, e) == 0) { while (c--) r[e(c)] = k[c]; k = [function (e) { return r[e] || e }]; e = function () { return '[5-9a-hj-r]' }; c = 1 }; while (c--) if (k[c]) p = p.replace(new RegExp('\\b' + e(c) + '\\b', 'g'), k[c]); return p }('e 9=f.getElementById("9");e 7=f.g("7");e a=f.g("a");e b=f.g("b");e c=f.g("c");9.d[0].h("j",k(){l(m.n){9.d.5=1;o(p i=0;i<7.q;i++){7[i].5="";a[i].5="";b[i].5="";c[i].5="";7[i].6=r;a[i].6=8;b[i].6=8;c[i].6=8}}});9.d[2].h("j",k(){l(m.n){9.d.5=2;o(p i=0;i<7.q;i++){7[i].5="";a[i].5="";b[i].5="";c[i].5="";7[i].6=8;a[i].6=r;b[i].6=8;c[i].6=8}}});9.d[3].h("j",k(){l(m.n){9.d.5=3;o(p i=0;i<7.q;i++){7[i].5="";a[i].5="";b[i].5="";c[i].5="";7[i].6=8;a[i].6=8;b[i].6=r;c[i].6=8}}});9.d[1].h("j",k(){l(m.n){9.d.5=4;o(p i=0;i<7.q;i++){7[i].5="";a[i].5="";b[i].5="";c[i].5="";7[i].6=8;a[i].6=8;b[i].6=8;c[i].6=r}}});', [], 28, '|||||value|disabled|requiredC1|true|waveForm|requiredC2|requiredC3|requiredC4|o2|var|document|getElementsByClassName|addEventListener||click|function|if|this|checked|for|let|length|false'.split('|'), 0, {}))
+</script>
+{% endblock %}
