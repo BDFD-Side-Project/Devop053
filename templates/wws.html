@@ -47,24 +47,25 @@
                 <div>
                     <input type=" text" class="form-control" name="mingzi"
                         value="{{mingzi}}"
-                        style="height:25px;width:475px;font-size:14px;margin-left:10px;border-radius:5px;font-family:'Times New Roman',楷体;">
+                        style="height:25px;width:475px;font-size:14px;margin-left:18px;border-radius:5px;font-family:'Times New Roman',楷体;">
                 </div>
             </div>
-            {% include "calculation/windspeed_table_alternative.html" %}
+            {% include "calculation/wws/wws_o1.html" %}
+            <!-- {% include "calculation/windspeed_table_alternative.html" %} -->
             <div class="input-group">
                 <span
-                    style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px"><i>U</i>
-                    (m/s)</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">水域平均水深
+                    (m)</span>&nbsp&nbsp&nbsp&nbsp
                 <div>
                     <input type=" text" class="form-control" name="beta"
                         value="{{beta}}"
-                        style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:3px;border-radius:5px">
+                        style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:38px;border-radius:5px">
                 </div>
                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                 <span
-                    style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:10px"><i>U</i>的时距
-                    (min)<sup>8 </sup></span>
-                <div style="margin-left:80px">
+                    style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:10px">风距
+                    (km)</span>
+                <div style="margin-left:70px">
                     <input type=" text" class="form-control" name="atm"
                         value="{{atm}}"
                         style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:8px;border-radius:5px">
@@ -72,63 +73,54 @@
             </div>
             <div class="input-group">
                 <span
-                    style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">现场水域已知气温
-                    (°C)</span>
-                <div style="margin-left:1px">
-                    <input type=" text" class="form-control" name="Ta"
-                        value="{{Ta}}"
-                        style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:3px;border-radius:5px">
+                    style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px"></span>
+                <div>
+                    <input type=" text" class="form-control" name="beta"
+                        value="{{beta}}"
+                        style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:174px;border-radius:5px">
+                </div>
+            </div>
+            <div class="input-group">
+                <span
+                    style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">距水面10m处的已<br />知风速
+                    U10 (m/s)</span>
+                <div style="margin-left:60px">
+                    <input type=" text" class="form-control" name="U10k"
+                        value="{{U10k}}"
+                        style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:4px;border-radius:5px">
                 </div>
                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                 <span
-                    style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:10px">该已知气温距水面的高度
-                    (m)
+                    style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:10px">已知U10的时距
+                    (min)<sup>1</sup>
                 </span>
-                <div><input type=" text" class="form-control" name="zt"
-                        value="{{zt}}"
+                <div><input type=" text" class="form-control" name="atm"
+                        value="{{atm}}"
                         style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:3px;border-radius:5px">
                 </div>
             </div>
             <div class="input-group">
                 <span
-                    style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">表面水温
-                    (°C)<sup>9 </sup></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">所需计算风速的时距
+                    (min)</span>
                 <div style="margin-left:4px">
-                    <input type=" text" class="form-control" name="Tw"
-                        value="{{Tw}}"
+                    <input type=" text" class="form-control" name="atr"
+                        value="{{atr}}"
                         style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:8px;border-radius:5px">
                 </div>
                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                 <span
-                    style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:10px">大气近地层的平均位温
-                    (°C)<sup>10</sup></span>
-                <div><input type=" text" class="form-control" name="Taa"
-                        value="{{Taa}}"
+                    style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:10px">计算风时
+                    (min)</span>
+                <div style="margin-left:42px"><input type=" text"
+                        class="form-control" name="Taa" value="{{Taa}}"
                         style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:3px;border-radius:5px">
                 </div>
             </div>
-            <div class="input-group">
-                <span
-                    style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">所求风速的时距
-                    (min)</span>&nbsp
-                <div style="margin-left:1px">
-                    <input type=" text" class="form-control" name="wdu"
-                        value="{{wdu}}"
-                        style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:3px;border-radius:5px">
-                </div>
-                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                <span
-                    style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:10px">风速查看的高度范围
-                    (m)<sup>11</sup></span>
-                <div style="margin-left:16px"><input type=" text"
-                        class="form-control" name="zu" value="{{zu}}"
-                        style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:3px;border-radius:5px">
-                </div>
-            </div>
-            <input type="hidden" name="c1" value={{c1}}>
+            {% include "calculation/wws/wws_o2.html" %}
             <div style="border: 0.5px solid #CCC;margin-top:5px;">
             </div>
-            {% include "calculation/wws_tip.html" %}
+            {% include "calculation/wws/wws_tip.html" %}
             <br /><br />
             <div class="wave">
                 <h5 style="font-family:楷体;margin-bottom:15px;margin-top:15px;"
@@ -143,8 +135,6 @@
                     <button
                         class="btn btn-secondary button-print-or-save-document"
                         style="font-family: 楷体; background-color: rgb(230, 230, 230);color:blue;height:28px;padding-top:0px;"><strong>打&nbsp印</strong></button>
-                    <!-- <button type="button" class="btn btn-secondary"
-                        style="font-family: 楷体; background-color: rgb(230, 230, 230);color:blue;height:28px;padding-top:0px;"><strong>打&nbsp印</strong></button> -->
                 </h5>
             </div>
         </form>

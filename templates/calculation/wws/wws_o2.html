@@ -1,0 +1,102 @@
+{% if o2 == '1' %}
+<label for="是否计算风壅增水？" class="form-label"
+    style="font-family:楷体;font-size:14px;margin-left:6px">是否计算风壅增水?<sup>2</sup></label>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" id="inlineRadio1" name="o2"
+        value="1" checked>
+    <label class="form-check-label" for="inlineRadio1"
+        style="font-family:楷体;font-size:14px;">是</label>
+</div>
+<div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" id="inlineRadio2" name="o2"
+        value="0">
+    <label class="form-check-label" for="inlineRadio2"
+        style="font-family:楷体;font-size:14px;">否</label>
+</div>
+<div class="input-group">
+    <span
+        style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">风向入射角
+        (°) <sup>3</sup></span>
+    <div style="margin-left:4px">
+        <input type=" text" class="form-control" name="beta" value="{{beta}}"
+            style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:72px;border-radius:5px">
+    </div>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <span
+        style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:10px">堤防顶沿距静水面的<br />高度
+        (m)</span>
+    <div style="margin-left:6px"><input type=" text" class="form-control"
+            name="slc" value="{{slc}}"
+            style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:3px;border-radius:5px">
+    </div>
+</div>
+{% elif o2 == '0' %}
+<label for="是否计算风壅增水？" class="form-label"
+    style="font-family:楷体;font-size:14px;margin-left:6px">是否计算风壅增水?<sup>2</sup></label>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" id="inlineRadio1" name="o2"
+        value="1">
+    <label class="form-check-label" for="inlineRadio1"
+        style="font-family:楷体;font-size:14px;">是</label>
+</div>
+<div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" id="inlineRadio2" name="o2"
+        value="0" checked>
+    <label class="form-check-label" for="inlineRadio2"
+        style="font-family:楷体;font-size:14px;">否</label>
+</div>
+<div class="input-group">
+    <span
+        style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">风向入射角
+        (°) <sup>3</sup></span>
+    <div style="margin-left:4px">
+        <input type=" text" class="form-control" name="beta" value="{{beta}}"
+            disabled="disabled"
+            style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:72px;border-radius:5px">
+    </div>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <span
+        style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:10px">堤防顶沿距静水面的<br />高度
+        (m)</span>
+    <div style="margin-left:6px"><input type=" text" class="form-control"
+            name="slc" value="{{slc}}" disabled="disabled"
+            style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:3px;border-radius:5px">
+    </div>
+</div>
+{% else %}
+<label for="是否计算风壅增水？" class="form-label"
+    style="font-family:楷体;font-size:14px;margin-left:6px">是否计算风壅增水?<sup>2</sup></label>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" id="inlineRadio1" name="o2"
+        value="1">
+    <label class="form-check-label" for="inlineRadio1"
+        style="font-family:楷体;font-size:14px;">是</label>
+</div>
+<div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" id="inlineRadio2" name="o2"
+        value="0">
+    <label class="form-check-label" for="inlineRadio2"
+        style="font-family:楷体;font-size:14px;">否</label>
+</div>
+<div class="input-group">
+    <span
+        style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">风向入射角
+        (°) <sup>3</sup></span>
+    <div style="margin-left:4px">
+        <input type=" text" class="form-control" name="beta" value="{{beta}}"
+            disabled="disabled"
+            style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:72px;border-radius:5px">
+    </div>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <span
+        style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:10px">堤防顶沿距静水面的<br />高度
+        (m)</span>
+    <div style="margin-left:6px"><input type=" text" class="form-control"
+            name="slc" value="{{slc}}" disabled="disabled"
+            style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:3px;border-radius:5px">
+    </div>
+</div>
+{% endif %}
