@@ -39,7 +39,7 @@
             </h5>
         </div>
         <form class="form" method="POST" action="#"
-            onsubmit="return validateForm()" id="waveForm" name="waveForm"
+            onsubmit="return validateForm()" id="WWSForm" name="WWSForm"
             style="font-size:14px">
             <div class="input-group">
                 <span
@@ -57,8 +57,8 @@
                     style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">水域平均水深
                     (m)</span>&nbsp&nbsp&nbsp&nbsp
                 <div>
-                    <input type=" text" class="form-control" name="beta"
-                        value="{{beta}}"
+                    <input type=" text" class="form-control" name="ad_1"
+                        value="{{ad_1}}"
                         style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:38px;border-radius:5px">
                 </div>
                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
@@ -66,8 +66,8 @@
                     style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:10px">风距
                     (km)</span>
                 <div style="margin-left:70px">
-                    <input type=" text" class="form-control" name="atm"
-                        value="{{atm}}"
+                    <input type=" text" class="form-control" name="X"
+                        value="{{X}}"
                         style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:8px;border-radius:5px">
                 </div>
             </div>
@@ -75,8 +75,8 @@
                 <span
                     style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px"></span>
                 <div>
-                    <input type=" text" class="form-control" name="beta"
-                        value="{{beta}}"
+                    <input type=" text" class="form-control" name="ad_2"
+                        value="{{ad_2}}"
                         style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:174px;border-radius:5px">
                 </div>
             </div>
@@ -113,11 +113,12 @@
                     style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:10px">计算风时
                     (min)</span>
                 <div style="margin-left:42px"><input type=" text"
-                        class="form-control" name="Taa" value="{{Taa}}"
+                        class="form-control" name="wdu" value="{{wdu}}"
                         style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:3px;border-radius:5px">
                 </div>
             </div>
             {% include "calculation/wws/wws_o2.html" %}
+            {% include "calculation/wws/wws_o3.html" %}
             <div style="border: 0.5px solid #CCC;margin-top:5px;">
             </div>
             {% include "calculation/wws/wws_tip.html" %}
@@ -132,23 +133,23 @@
                     </button>
                     <a href="/wws.html" class="btn btn-secondary"
                         style="font-family: 楷体; background-color: rgb(230, 230, 230);color:blue;height:28px;padding-top:0px;"><strong>清&nbsp空</strong></a>
-                    <button
+                    <button type="button"
                         class="btn btn-secondary button-print-or-save-document"
                         style="font-family: 楷体; background-color: rgb(230, 230, 230);color:blue;height:28px;padding-top:0px;"><strong>打&nbsp印</strong></button>
                 </h5>
             </div>
         </form>
-        {% include "calculation/wws_result.html" %}
+        {% include "calculation/wws/wws_result.html" %}
     </div>
 </div>
 <p style="margin-top:75px"></p>
-<script type="text/javascript"
-    src="{{ url_for('static',filename='javascript/windspeed/form_validation.js') }}"></script>
 <!-- <script type="text/javascript"
-    src="{{ url_for('static',filename='javascript/pagebreak.js') }}"></script> -->
+    src="{{ url_for('static',filename='javascript/windspeed/form_validation.js') }}"></script> -->
+<script type="text/javascript"
+    src="{{ url_for('static',filename='javascript/wws/form_function.js') }}"></script>
+<script>
+    <script type="text/javascript"
+        src="{{ url_for('static',filename='javascript/pagebreak.js') }}"></script>
 <script type="text/javascript"
     src="{{ url_for('static',filename='javascript/print.js') }}"></script>
-<script>
-    eval(function (p, a, c, k, e, r) { e = function (c) { return c.toString(36) }; if ('0'.replace(0, e) == 0) { while (c--) r[e(c)] = k[c]; k = [function (e) { return r[e] || e }]; e = function () { return '[5-9a-hj-r]' }; c = 1 }; while (c--) if (k[c]) p = p.replace(new RegExp('\\b' + e(c) + '\\b', 'g'), k[c]); return p }('e 9=f.getElementById("9");e 7=f.g("7");e a=f.g("a");e b=f.g("b");e c=f.g("c");9.d[0].h("j",k(){l(m.n){9.d.5=1;o(p i=0;i<7.q;i++){7[i].5="";a[i].5="";b[i].5="";c[i].5="";7[i].6=r;a[i].6=8;b[i].6=8;c[i].6=8}}});9.d[2].h("j",k(){l(m.n){9.d.5=2;o(p i=0;i<7.q;i++){7[i].5="";a[i].5="";b[i].5="";c[i].5="";7[i].6=8;a[i].6=r;b[i].6=8;c[i].6=8}}});9.d[3].h("j",k(){l(m.n){9.d.5=3;o(p i=0;i<7.q;i++){7[i].5="";a[i].5="";b[i].5="";c[i].5="";7[i].6=8;a[i].6=8;b[i].6=r;c[i].6=8}}});9.d[1].h("j",k(){l(m.n){9.d.5=4;o(p i=0;i<7.q;i++){7[i].5="";a[i].5="";b[i].5="";c[i].5="";7[i].6=8;a[i].6=8;b[i].6=8;c[i].6=r}}});', [], 28, '|||||value|disabled|requiredC1|true|waveForm|requiredC2|requiredC3|requiredC4|o2|var|document|getElementsByClassName|addEventListener||click|function|if|this|checked|for|let|length|false'.split('|'), 0, {}))
-</script>
 {% endblock %}
