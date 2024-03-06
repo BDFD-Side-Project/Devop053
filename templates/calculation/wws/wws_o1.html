@@ -2,14 +2,14 @@
  * @Date         : 2024-03-05 11:42:15
  * @Author       : BDFD,bdfd2005@gmail.com
  * @Github       : https://github.com/bdfd
- * @LastEditTime : 2024-03-06 10:58:24
+ * @LastEditTime : 2024-03-06 15:22:36
  * @LastEditors  : <BDFD>
  * @Description  : 
  * @FilePath     : \templates\calculation\wws\wws_o1.html
  * Copyright (c) 2024 by BDFD, All Rights Reserved. 
 -->
 <!-- <input type="hidden" id="o1_temp" name="o1_temp" value="test"> -->
-<label for="水域" class="form-label"
+<!-- <label for="水域" class="form-label"
     style="font-size:14px;margin-left:6px;margin-bottom:0px;">水域</label>
 <div class="form-check form-check-inline" style="margin-left:88px;">
     <select name="o1" style="height:25px;width:275px;">
@@ -18,4 +18,16 @@
         <option value="2">相对封闭的海岸水域（港湾、河口）</option>
         <option value="3">水库/湖泊/内河</option>
     </select>
+</div> -->
+<div class="input-group">
+    <span style="font-family:楷体;font-size:14px;margin-left:6px">水域</span>
+    <div class="form-check form-check-inline" style="margin-left:76px;">
+        <select type=" text" class="form-control" name="o1"
+            style="padding-top:0px;padding-bottom:0px;height:25px;font-size:14px;width:475px;margin-left:10px;margin-right:-16px;border-radius:5px;">
+            <option value="None"> </option>
+            <option value="1">开敞海域；上风向开阔、无掩护的海岸水域</option>
+            <option value="2">相对封闭的海岸水域（港湾、河口）</option>
+            <option value="3">水库/湖泊/内河</option>
+        </select>
+    </div>
 </div>

@@ -2,7 +2,7 @@
  * @Date         : 2024-03-05 18:42:12
  * @Author       : BDFD,bdfd2005@gmail.com
  * @Github       : https://github.com/bdfd
- * @LastEditTime : 2024-03-06 10:55:06
+ * @LastEditTime : 2024-03-06 15:11:22
  * @LastEditors  : <BDFD>
  * @Description  :
  * @FilePath     : \static\javascript\wws\form_function.js
@@ -14,6 +14,8 @@ theform.o2[0].addEventListener("click", function () {
 	if (this.checked) {
 		theform.beta.disabled = false;
 		theform.slc.disabled = false;
+		theform.o5[0].disabled = false;
+		theform.o5[1].disabled = false;
 	}
 });
 theform.o2[1].addEventListener("click", function () {
@@ -22,6 +24,8 @@ theform.o2[1].addEventListener("click", function () {
 		theform.beta.disabled = true;
 		// theform.slc.value = "";
 		theform.slc.disabled = true;
+		theform.o5[0].disabled = true;
+		theform.o5[1].disabled = true;
 		theform.o4[0].disabled = true;
 		theform.o4[1].disabled = true;
 		theform.ssd.disabled = true;
