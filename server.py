@@ -2,7 +2,7 @@
 Date         : 2023-01-16 11:31:15
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2024-03-05 10:48:25
+LastEditTime : 2024-03-18 18:04:01
 LastEditors  : <BDFD>
 Description  : 
 FilePath     : \server.py
@@ -243,7 +243,53 @@ def windspeedhelp():
 
 @app.route("/wws.html")
 def wws():
-    return render_template("wws.html")
+    if request.method == "POST":
+        # Wind-generated Wave
+        # Inputs
+        input_dic = {}
+        input_dic.update({"o1": None, "ad": None, "X": None, "U10k": None,
+                  "atm": None, "atr": None, "wdu": None, "o2": None,
+                  "beta": None, "slc": None, "o4": None, "o5": None,
+                  "xs": None, "d0": None, "Ksb": None, "xlook": None})
+        # Primary
+        # catagory of water environment: 1 open ocean or coastal (not enclosed) waters, 2 almost enclosed coastal waters (including bays or estuaries), 3 lakes or reserviors
+        o1 = request.form["o1"]
+        print(o1)
+        input_dic.update({"o1": o1})
+        # None # average water depth (m), None for assumed deep water or a positive value for a finite water depth
+        ad = request.form["ad"]
+        X = request.form["X"]  # 24.4#20#10 # fetch length (km)
+        U10k = request.form["U10k"]  # 30.86#30#14.195#20/1.25 # 30# A known U10 (m/s)
+        # averaging time of U10 (min) (A wanrning will show if it<=1/60 or it>=600!!)
+        atm = request.form["atm"]
+        # required averaging time of windspped (min) (A wanrning will show if it<=1/60 or it>=600!!)
+        atr = request.form["atr"]
+        # 4.5*60 # wind duration to be considered (min) (A wanrning will show if it<=1/60 or it>=600!!)
+        wdu = request.form["wdu"]
+        input_dic.update({"ad": ad, "X": X, "U10k": U10k, "atm": atm,
+                        "atr": atr, "wdu": wdu})
+        o2 = request.form["o2"]  # Replace 1 For 'Yes' Situtation  # whether to calculate wind setup? Yes or No
+        # beta=0 # the angle of incidence (from the shoreline normal). 0 means that the incident wave is pertenticular to the shoreline.
+        beta = request.form["beta"]
+        slc = request.form["slc"]
+        input_dic.update({"o2": o2, "beta": beta, "slc": slc})
+        o5 = request.form["o5"]
+        o4 = request.form["o4"]
+        xs = request.form["xs"]
+        d0 = request.form["d0"]
+        Ksb = request.form["Ksb"]
+        xlook = request.form["xlook"]
+        input_dic.update({"o4": o4, "o5": o5, "xs": xs,
+                        "d0": d0, "Ksb": Ksb, "xlook": xlook, })
+        # catagory of known windspeed: #1) low-level overwater wind; 2) low-level overland wind (onshore wind at an anemometer immediately adjacent to water);
+        # o2 = 3
+        # 3) low-level overland wind (other scenarios); 4) geostrophic winds
+        print(input_dic)
+        result = wes.ww(input_dic)
+        # print(result)
+        return render_template("wws.html")
+    else:
+        return render_template("wws.html")
 
 
 @app.route("/wwsupdate.html")
