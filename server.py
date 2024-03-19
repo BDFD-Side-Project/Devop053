@@ -2,7 +2,7 @@
 Date         : 2023-01-16 11:31:15
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2024-03-18 18:04:01
+LastEditTime : 2024-03-18 23:10:31
 LastEditors  : <BDFD>
 Description  : 
 FilePath     : \server.py
@@ -11,6 +11,7 @@ Copyright (c) 2023 by BDFD, All Rights Reserved.
 # This is the flask server of waterfrontes.com 滨水工
 # from distutils.log import debpytug
 from flask import Flask, send_file, redirect, render_template, url_for, request, flash
+from execdata.format import convint as s2int, convfloat as s2dec
 import WES_Calculation as wes
 
 app = Flask(__name__)
@@ -241,20 +242,19 @@ def windspeedhelp():
     return render_template("instructions/windspeedhelp.html")
 
 
-@app.route("/wws.html")
+@app.route("/wws.html", methods=["POST", "GET"])
 def wws():
     if request.method == "POST":
         # Wind-generated Wave
         # Inputs
         input_dic = {}
-        input_dic.update({"o1": None, "ad": None, "X": None, "U10k": None,
-                  "atm": None, "atr": None, "wdu": None, "o2": None,
-                  "beta": None, "slc": None, "o4": None, "o5": None,
-                  "xs": None, "d0": None, "Ksb": None, "xlook": None})
+        input_dic.update({"o1": " ", "ad": " ", "X": " ", "U10k": " ",
+                  "atm": " ", "atr": " ", "wdu": " ", "o2": " ",
+                  "beta": " ", "slc": " ", "o4": " ", "o5": " ",
+                  "xs": " ", "d0": " ", "Ksb": " ", "xlook": " "})
         # Primary
         # catagory of water environment: 1 open ocean or coastal (not enclosed) waters, 2 almost enclosed coastal waters (including bays or estuaries), 3 lakes or reserviors
         o1 = request.form["o1"]
-        print(o1)
         input_dic.update({"o1": o1})
         # None # average water depth (m), None for assumed deep water or a positive value for a finite water depth
         ad = request.form["ad"]
@@ -270,24 +270,34 @@ def wws():
                         "atr": atr, "wdu": wdu})
         o2 = request.form["o2"]  # Replace 1 For 'Yes' Situtation  # whether to calculate wind setup? Yes or No
         # beta=0 # the angle of incidence (from the shoreline normal). 0 means that the incident wave is pertenticular to the shoreline.
-        beta = request.form["beta"]
-        slc = request.form["slc"]
-        input_dic.update({"o2": o2, "beta": beta, "slc": slc})
-        o5 = request.form["o5"]
-        o4 = request.form["o4"]
-        xs = request.form["xs"]
-        d0 = request.form["d0"]
-        Ksb = request.form["Ksb"]
-        xlook = request.form["xlook"]
-        input_dic.update({"o4": o4, "o5": o5, "xs": xs,
-                        "d0": d0, "Ksb": Ksb, "xlook": xlook, })
+        input_dic.update({"o2": o2})
+        if o2 == "1":
+            beta = request.form["beta"]
+            slc = request.form["slc"]
+            input_dic.update({"beta": beta, "slc": slc})
+            o5 = request.form["o5"]
+            input_dic.update({"o5": o5,})
+            if o5 == "1":
+                o4 = request.form["o4"]
+                xs = request.form["xs"]
+                d0 = request.form["d0"]
+                Ksb = request.form["Ksb"]
+                xlook = request.form["xlook"]
+                input_dic.update({"o4": o4, "xs": xs,"d0": d0, "Ksb": Ksb, "xlook": xlook})
         # catagory of known windspeed: #1) low-level overwater wind; 2) low-level overland wind (onshore wind at an anemometer immediately adjacent to water);
         # o2 = 3
         # 3) low-level overland wind (other scenarios); 4) geostrophic winds
         print(input_dic)
         result = wes.ww(input_dic)
         # print(result)
-        return render_template("wws.html")
+        return render_template("wws.html", o1=input_dic["o1"], ad=input_dic["ad"], X=input_dic["X"], 
+                               U10k=input_dic["U10k"], atm=input_dic["atm"],atr=input_dic["atr"], 
+                               wdu=input_dic["wdu"], o2=input_dic["o2"], beta=input_dic["beta"], slc=input_dic["slc"], 
+                               o4=input_dic["o4"], o5=input_dic["o5"], xs=input_dic["xs"], 
+                               d0=input_dic["d0"], Ksb=input_dic["Ksb"], xlook=input_dic["xlook"], 
+                               heading=result[0], section1=result[1], section3=result[2], 
+                               section4=result[3], section5=result[4], section6=result[5],
+                               section7=result[6], section8=result[7], ending=result[8])
     else:
         return render_template("wws.html")
 
