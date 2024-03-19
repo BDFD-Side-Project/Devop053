@@ -2,10 +2,10 @@
  * @Date         : 2022-12-17 21:58:19
  * @Author       : BDFD,bdfd2005@gmail.com
  * @Github       : https://github.com/bdfd
- * @LastEditTime : 2024-03-05 14:48:30
+ * @LastEditTime : 2024-03-19 12:42:06
  * @LastEditors  : <BDFD>
  * @Description  : 
- * @FilePath     : \templates\calculation\wws_result.html
+ * @FilePath     : \templates\calculation\wws\wws_result.html
  * Copyright (c) 2022 by BDFD, All Rights Reserved. 
 -->
 <!--        <div class="card">-->
@@ -50,16 +50,6 @@
         {% endfor %}
     </ol>
     {% endif %}
-    {% if section2_note %}
-    {% for section in section2_note %}
-    <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
-        <div style="margin-left:30px">
-            {{section}}
-        </div>
-    </li>
-    {% endfor %}
-    {% endif %}
-    <br />
     {% if section3 %}
     <p style="margin-bottom: 0px;margin-left: 10px;">
         ---港口与航道水文规范 (JTS 145-2015)---</p>
@@ -76,7 +66,7 @@
     <br />
     {% if section4 %}
     <p style="margin-bottom: 0px;margin-left: 10px;">
-        ---Shore Protection Manual (SPM 1984)---</p>
+        ---堤防工程设计规范 (GB 50286-2013)---</p>
     <ol class="list-group list-group-numbered">
         {% for section in section4 %}
         <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
@@ -90,7 +80,7 @@
     <br />
     {% if section5 %}
     <p style="margin-bottom: 0px;margin-left: 10px;">
-        ---Coastal Engineering Manual (CEM)---</p>
+        ---海堤工程设计规范 (GB/T 51015-2014)---</p>
     <ol class="list-group list-group-numbered">
         {% for section in section5 %}
         <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
@@ -104,7 +94,7 @@
     <br />
     {% if section6 %}
     <p style="margin-bottom: 0px;margin-left: 10px;">
-        ---API RP 2A-WSD---</p>
+        ---Shore Protection Manual (SPM 1984)---</p>
     <ol class="list-group list-group-numbered">
         {% for section in section6 %}
         <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
@@ -118,34 +108,21 @@
     <br />
     {% if section7 %}
     <p style="margin-bottom: 0px;margin-left: 10px;">
-        ---结果汇总：{{ wdu }}-min时距的U₁₀ (m/s)---</p>
-    <table>
-        {% for row in section7 %}
-        <tr>
-            {% if row[2] %}
-            <td
-                style="width: 120px; text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
-                {{row[0]}}</td>
-            <td
-                style="width: 110px; text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
-                {{row[1]}}</td>
-            <td
-                style="width: 100px; text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
-                {{row[2]}}</td>
-            {% else %}
-            <td
-                style="width: 120px; text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
-                {{row[0]}}</td>
-            <td style="width: 210px; text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;"
-                colspan="2">
-                {{row[1]}}</td>
-            {% endif %}
-        </tr>
+        ---Coastal Engineering Manual (CEM 2015)---</p>
+    <ol class="list-group list-group-numbered">
+        {% for section in section6 %}
+        <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
+            <div style="margin-left:10px">
+                {{section}}
+            </div>
+        </li>
         {% endfor %}
-    </table>
+    </ol>
     {% endif %}
     <br />
+    {% if ending %}
     <div>
-        <p>{{ending}}</p>
+        <p>{{ending[0]}}</p>
     </div>
+    {% endif %}
 </div>

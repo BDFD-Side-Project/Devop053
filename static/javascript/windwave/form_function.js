@@ -2,10 +2,10 @@
  * @Date         : 2024-03-05 18:42:12
  * @Author       : BDFD,bdfd2005@gmail.com
  * @Github       : https://github.com/bdfd
- * @LastEditTime : 2024-03-06 15:11:22
+ * @LastEditTime : 2024-03-19 14:19:14
  * @LastEditors  : <BDFD>
  * @Description  :
- * @FilePath     : \static\javascript\wws\form_function.js
+ * @FilePath     : \static\javascript\windwave\form_function.js
  * Copyright (c) 2024 by BDFD, All Rights Reserved.
  */
 console.log("WWS Form Check Function Page Test Msg");
@@ -28,27 +28,27 @@ theform.o2[1].addEventListener("click", function () {
 		theform.o5[1].disabled = true;
 		theform.o4[0].disabled = true;
 		theform.o4[1].disabled = true;
-		theform.ssd.disabled = true;
-		theform.ss.disabled = true;
+		theform.xs.disabled = true;
+		theform.d0.disabled = true;
 		theform.Ksb.disabled = true;
-		theform.sy.disabled = true;
+		theform.xlook.disabled = true;
 	}
 });
 theform.o5[0].addEventListener("click", function () {
 	if (this.checked && theform.o2[0].checked) {
 		theform.o4[0].disabled = false;
 		theform.o4[1].disabled = false;
-		theform.ssd.disabled = false;
-		theform.ss.disabled = false;
+		theform.xs.disabled = false;
+		theform.d0.disabled = false;
 		theform.Ksb.disabled = false;
-		theform.sy.disabled = false;
+		theform.xlook.disabled = false;
 	} else {
 		theform.o4[0].disabled = true;
 		theform.o4[1].disabled = true;
-		theform.ssd.disabled = true;
-		theform.ss.disabled = true;
+		theform.xs.disabled = true;
+		theform.d0.disabled = true;
 		theform.Ksb.disabled = true;
-		theform.sy.disabled = true;
+		theform.xlook.disabled = true;
 	}
 });
 
@@ -57,12 +57,12 @@ theform.o5[1].addEventListener("click", function () {
 		theform.o4[0].disabled = true;
 		theform.o4[1].disabled = true;
 		// theform.ssd.value = "";
-		theform.ssd.disabled = true;
+		theform.xs.disabled = true;
 		// theform.ss.value = "";
-		theform.ss.disabled = true;
+		theform.d0.disabled = true;
 		// theform.Ksb.value = "";
 		theform.Ksb.disabled = true;
-		// theform.sy.value = "";
-		theform.sy.disabled = true;
+		// theform.xlook.value = "";
+		theform.xlook.disabled = true;
 	}
 });

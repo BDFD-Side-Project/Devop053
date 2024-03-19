@@ -2,7 +2,7 @@
 Date         : 2023-01-16 11:31:15
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2024-03-18 23:10:31
+LastEditTime : 2024-03-19 14:09:17
 LastEditors  : <BDFD>
 Description  : 
 FilePath     : \server.py
@@ -249,9 +249,9 @@ def wws():
         # Inputs
         input_dic = {}
         input_dic.update({"o1": " ", "ad": " ", "X": " ", "U10k": " ",
-                  "atm": " ", "atr": " ", "wdu": " ", "o2": " ",
-                  "beta": " ", "slc": " ", "o4": " ", "o5": " ",
-                  "xs": " ", "d0": " ", "Ksb": " ", "xlook": " "})
+                          "atm": " ", "atr": " ", "wdu": " ", "o2": " ",
+                          "beta": " ", "slc": " ", "o4": " ", "o5": " ",
+                          "xs": " ", "d0": " ", "Ksb": " ", "xlook": " "})
         # Primary
         # catagory of water environment: 1 open ocean or coastal (not enclosed) waters, 2 almost enclosed coastal waters (including bays or estuaries), 3 lakes or reserviors
         o1 = request.form["o1"]
@@ -259,7 +259,8 @@ def wws():
         # None # average water depth (m), None for assumed deep water or a positive value for a finite water depth
         ad = request.form["ad"]
         X = request.form["X"]  # 24.4#20#10 # fetch length (km)
-        U10k = request.form["U10k"]  # 30.86#30#14.195#20/1.25 # 30# A known U10 (m/s)
+        # 30.86#30#14.195#20/1.25 # 30# A known U10 (m/s)
+        U10k = request.form["U10k"]
         # averaging time of U10 (min) (A wanrning will show if it<=1/60 or it>=600!!)
         atm = request.form["atm"]
         # required averaging time of windspped (min) (A wanrning will show if it<=1/60 or it>=600!!)
@@ -267,8 +268,9 @@ def wws():
         # 4.5*60 # wind duration to be considered (min) (A wanrning will show if it<=1/60 or it>=600!!)
         wdu = request.form["wdu"]
         input_dic.update({"ad": ad, "X": X, "U10k": U10k, "atm": atm,
-                        "atr": atr, "wdu": wdu})
-        o2 = request.form["o2"]  # Replace 1 For 'Yes' Situtation  # whether to calculate wind setup? Yes or No
+                          "atr": atr, "wdu": wdu})
+        # Replace 1 For 'Yes' Situtation  # whether to calculate wind setup? Yes or No
+        o2 = request.form["o2"]
         # beta=0 # the angle of incidence (from the shoreline normal). 0 means that the incident wave is pertenticular to the shoreline.
         input_dic.update({"o2": o2})
         if o2 == "1":
@@ -276,26 +278,28 @@ def wws():
             slc = request.form["slc"]
             input_dic.update({"beta": beta, "slc": slc})
             o5 = request.form["o5"]
-            input_dic.update({"o5": o5,})
+            input_dic.update({"o5": o5, })
             if o5 == "1":
                 o4 = request.form["o4"]
                 xs = request.form["xs"]
                 d0 = request.form["d0"]
                 Ksb = request.form["Ksb"]
                 xlook = request.form["xlook"]
-                input_dic.update({"o4": o4, "xs": xs,"d0": d0, "Ksb": Ksb, "xlook": xlook})
+                input_dic.update(
+                    {"o4": o4, "xs": xs, "d0": d0, "Ksb": Ksb, "xlook": xlook})
         # catagory of known windspeed: #1) low-level overwater wind; 2) low-level overland wind (onshore wind at an anemometer immediately adjacent to water);
         # o2 = 3
         # 3) low-level overland wind (other scenarios); 4) geostrophic winds
         print(input_dic)
         result = wes.ww(input_dic)
-        # print(result)
-        return render_template("wws.html", o1=input_dic["o1"], ad=input_dic["ad"], X=input_dic["X"], 
-                               U10k=input_dic["U10k"], atm=input_dic["atm"],atr=input_dic["atr"], 
-                               wdu=input_dic["wdu"], o2=input_dic["o2"], beta=input_dic["beta"], slc=input_dic["slc"], 
-                               o4=input_dic["o4"], o5=input_dic["o5"], xs=input_dic["xs"], 
-                               d0=input_dic["d0"], Ksb=input_dic["Ksb"], xlook=input_dic["xlook"], 
-                               heading=result[0], section1=result[1], section3=result[2], 
+        print((input_dic["xs"]))
+        print((input_dic["d0"]))
+        return render_template("wws.html", o1=input_dic["o1"], ad=input_dic["ad"], X=input_dic["X"],
+                               U10k=input_dic["U10k"], atm=input_dic["atm"], atr=input_dic["atr"],
+                               wdu=input_dic["wdu"], o2=input_dic["o2"], beta=input_dic["beta"], slc=input_dic["slc"],
+                               o4=input_dic["o4"], o5=input_dic["o5"], xs=input_dic["xs"],
+                               d0=input_dic["d0"], Ksb=input_dic["Ksb"], xlook=input_dic["xlook"],
+                               heading=result[0], section1=result[1], section3=result[2],
                                section4=result[3], section5=result[4], section6=result[5],
                                section7=result[6], section8=result[7], ending=result[8])
     else:

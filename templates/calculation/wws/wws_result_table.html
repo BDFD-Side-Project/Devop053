@@ -1,0 +1,39 @@
+<!--
+ * @Date         : 2022-12-17 21:58:19
+ * @Author       : BDFD,bdfd2005@gmail.com
+ * @Github       : https://github.com/bdfd
+ * @LastEditTime : 2024-03-19 12:22:32
+ * @LastEditors  : <BDFD>
+ * @Description  : 
+ * @FilePath     : \templates\calculation\wws\wws_result.html
+ * Copyright (c) 2022 by BDFD, All Rights Reserved. 
+-->
+{% if section8 %}
+<p style="margin-bottom: 0px;margin-left: 10px;">
+    ---结果汇总---</p>
+<table>
+    {% for row in section7 %}
+    <tr>
+        {% if row[2] %}
+        <td
+            style="width: 120px; text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+            {{row[0]}}</td>
+        <td
+            style="width: 110px; text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+            {{row[1]}}</td>
+        <td
+            style="width: 100px; text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+            {{row[2]}}</td>
+        {% else %}
+        <td
+            style="width: 120px; text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+            {{row[0]}}</td>
+        <td style="width: 210px; text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;"
+            colspan="2">
+            {{row[1]}}</td>
+        {% endif %}
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+<br />
