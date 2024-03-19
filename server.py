@@ -2,7 +2,7 @@
 Date         : 2023-01-16 11:31:15
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2024-03-19 14:09:17
+LastEditTime : 2024-03-19 18:29:07
 LastEditors  : <BDFD>
 Description  : 
 FilePath     : \server.py
@@ -294,6 +294,9 @@ def wws():
         result = wes.ww(input_dic)
         print((input_dic["xs"]))
         print((input_dic["d0"]))
+        test = result[7]
+        print('Hello World!')
+        print(test[0][1])
         return render_template("wws.html", o1=input_dic["o1"], ad=input_dic["ad"], X=input_dic["X"],
                                U10k=input_dic["U10k"], atm=input_dic["atm"], atr=input_dic["atr"],
                                wdu=input_dic["wdu"], o2=input_dic["o2"], beta=input_dic["beta"], slc=input_dic["slc"],
@@ -301,7 +304,7 @@ def wws():
                                d0=input_dic["d0"], Ksb=input_dic["Ksb"], xlook=input_dic["xlook"],
                                heading=result[0], section1=result[1], section3=result[2],
                                section4=result[3], section5=result[4], section6=result[5],
-                               section7=result[6], section8=result[7], ending=result[8])
+                               section7=result[6], section8_heading=result[7], section8=result[8], ending=result[9])
     else:
         return render_template("wws.html")
 
