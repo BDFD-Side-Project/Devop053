@@ -2,7 +2,7 @@
  * @Date         : 2022-12-17 21:58:19
  * @Author       : BDFD,bdfd2005@gmail.com
  * @Github       : https://github.com/bdfd
- * @LastEditTime : 2024-03-19 12:42:06
+ * @LastEditTime : 2024-03-19 16:55:30
  * @LastEditors  : <BDFD>
  * @Description  : 
  * @FilePath     : \templates\calculation\wws\wws_result.html
@@ -18,11 +18,6 @@
 <!-- <div class="wave-body" style="font-family: 'Times New Roman',楷体;"> -->
 <div class="card-body"
     style="margin-left:10px;font-family: 'Times New Roman',楷体;font-size: 14px;">
-    <img onerror='this.style.display = "none"'
-        src="data:image/png;base64, {{ img_stream }}" />
-    <div>
-        <p>{{heading}}</p>
-    </div>
     {% if section1 %}
     <p style="margin-bottom: 0px;margin-left: 10px;">
         ---总说明---</p>
@@ -110,7 +105,7 @@
     <p style="margin-bottom: 0px;margin-left: 10px;">
         ---Coastal Engineering Manual (CEM 2015)---</p>
     <ol class="list-group list-group-numbered">
-        {% for section in section6 %}
+        {% for section in section7 %}
         <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
             <div style="margin-left:10px">
                 {{section}}
