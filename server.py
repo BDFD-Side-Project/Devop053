@@ -2,7 +2,7 @@
 Date         : 2023-01-16 11:31:15
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2024-03-19 18:29:07
+LastEditTime : 2024-03-19 20:26:06
 LastEditors  : <BDFD>
 Description  : 
 FilePath     : \server.py
@@ -257,7 +257,11 @@ def wws():
         o1 = request.form["o1"]
         input_dic.update({"o1": o1})
         # None # average water depth (m), None for assumed deep water or a positive value for a finite water depth
-        ad = request.form["ad"]
+        if request.form["ad"] != "":
+            ad = request.form["ad"]
+        else:
+            ad = "None"
+        print(ad)
         X = request.form["X"]  # 24.4#20#10 # fetch length (km)
         # 30.86#30#14.195#20/1.25 # 30# A known U10 (m/s)
         U10k = request.form["U10k"]

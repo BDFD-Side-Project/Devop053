@@ -2,7 +2,7 @@
  * @Date         : 2022-12-17 21:58:19
  * @Author       : BDFD,bdfd2005@gmail.com
  * @Github       : https://github.com/bdfd
- * @LastEditTime : 2024-03-19 18:31:06
+ * @LastEditTime : 2024-03-19 20:19:09
  * @LastEditors  : <BDFD>
  * @Description  : 
  * @FilePath     : \templates\calculation\wws\wws_result.html
@@ -16,9 +16,11 @@
     </h5>
 </div>
 <!-- <div class="wave-body" style="font-family: 'Times New Roman',楷体;"> -->
+<!-- <div class="result"> -->
 <div class="card-body"
-    style="margin-left:10px;font-family: 'Times New Roman',楷体;font-size: 14px;">
+    style="margin-left:-10px ;padding: 0rem;font-family: 'Times New Roman',楷体;font-size: 14px;">
     {% if section1 %}
+    <br />
     <p style="margin-bottom: 0px;margin-left: 10px;">
         ---总说明---</p>
     <ol class="list-group list-group-numbered">
@@ -122,7 +124,7 @@
         {% if section8_heading %}
         <tr>
             <th
-                style="width:60px;text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+                style="width:140px;text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
                 {{section8_heading[0][0]}}
             </th>
             <th
@@ -150,15 +152,15 @@
                 {{section8_heading[0][6]}}
             </th>
             <th
-                style="width:67px;text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+                style="width:77px;text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
                 {{section8_heading[0][7]}}
             </th>
             <th
-                style="width:67px;text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+                style="width:77px;text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
                 {{section8_heading[0][8]}}
             </th>
             <th
-                style="width:67px;text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+                style="width:85px;text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
                 {{section8_heading[0][9]}}
             </th>
         </tr>
