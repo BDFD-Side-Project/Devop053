@@ -2,7 +2,7 @@
 Date         : 2023-01-16 11:31:15
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2024-03-20 17:02:04
+LastEditTime : 2024-03-21 22:10:06
 LastEditors  : <BDFD>
 Description  : 
 FilePath     : \server.py
@@ -285,24 +285,24 @@ def wws():
             beta = request.form["beta"]
             slc = request.form["slc"]
             input_dic.update({"beta": beta, "slc": slc})
-            o5 = request.form["o5"]
-            input_dic.update({"o5": o5, })
-            if o5 == "1":
-                o4 = request.form["o4"]
-                xs = request.form["xs"]
-                d0 = request.form["d0"]
-                Ksb = request.form["Ksb"]
-                xlook = request.form["xlook"]
-                input_dic.update(
-                    {"o4": o4, "xs": xs, "d0": d0, "Ksb": Ksb, "xlook": xlook})
+            if o1 == "1":
+                o5 = request.form["o5"]
+                input_dic.update({"o5": o5, })
+                if o5 == "1":
+                    o4 = request.form["o4"]
+                    xs = request.form["xs"]
+                    d0 = request.form["d0"]
+                    Ksb = request.form["Ksb"]
+                    xlook = request.form["xlook"]
+                    input_dic.update(
+                        {"o4": o4, "xs": xs, "d0": d0, "Ksb": Ksb, "xlook": xlook})
         # catagory of known windspeed: #1) low-level overwater wind; 2) low-level overland wind (onshore wind at an anemometer immediately adjacent to water);
         # o2 = 3
         # 3) low-level overland wind (other scenarios); 4) geostrophic winds
         print(input_dic)
         result = wes.ww(input_dic)
-        print((input_dic["xs"]))
-        print((input_dic["d0"]))
-        section2=result[2]
+        # print((input_dic["xs"]))
+        # print((input_dic["d0"]))
         print('Hello World!')
         return render_template("wws.html", o1=input_dic["o1"], ad=input_dic["ad"], X=input_dic["X"],
                                U10k=input_dic["U10k"], atm=input_dic["atm"], atr=input_dic["atr"],
