@@ -2,7 +2,7 @@
  * @Date         : 2022-12-12 12:31:04
  * @Author       : BDFD,bdfd2005@gmail.com
  * @Github       : https://github.com/bdfd
- * @LastEditTime : 2024-03-25 12:29:28
+ * @LastEditTime : 2024-03-25 13:26:14
  * @LastEditors  : <BDFD>
  * @Description  :
  * @FilePath     : \static\javascript\windwave\form_validation.js
@@ -105,25 +105,25 @@ function validateForm() {
 	let o2 = theform.o2.value;
 	let o5 = theform.o5.value;
 	if (o2 == 1) {
-		let beta = theform.beta.value;
-		switch (true) {
-			case beta == "" || beta.trim() == "":
-				break;
-			case !beta.match(pos_real_number):
-				alert("请在此输入数值。");
-				document.WWSForm.beta.focus();
-				return false;
-		}
+		// let beta = theform.beta.value;
+		// switch (true) {
+		// 	case beta == "" || beta.trim() == "":
+		// 		break;
+		// 	case !beta.match(pos_real_number):
+		// 		alert("请在此输入数值。");
+		// 		document.WWSForm.beta.focus();
+		// 		return false;
+		// }
 
-		let slc = theform.slc.value;
-		switch (true) {
-			case slc == "" || slc.trim() == "":
-				break;
-			case !slc.match(pos_real_number):
-				alert("请在此输入数值。");
-				document.WWSForm.slc.focus();
-				return false;
-		}
+		// let slc = theform.slc.value;
+		// switch (true) {
+		// 	case slc == "" || slc.trim() == "":
+		// 		break;
+		// 	case !slc.match(pos_real_number):
+		// 		alert("请在此输入数值。");
+		// 		document.WWSForm.slc.focus();
+		// 		return false;
+		// }
 
 		if (o1 == 1) {
 			if (o5 == 1) {
