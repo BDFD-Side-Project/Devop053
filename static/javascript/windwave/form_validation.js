@@ -2,7 +2,7 @@
  * @Date         : 2022-12-12 12:31:04
  * @Author       : BDFD,bdfd2005@gmail.com
  * @Github       : https://github.com/bdfd
- * @LastEditTime : 2024-03-24 22:53:43
+ * @LastEditTime : 2024-03-25 09:48:26
  * @LastEditors  : <BDFD>
  * @Description  :
  * @FilePath     : \static\javascript\windwave\form_validation.js
@@ -99,20 +99,56 @@ function validateForm() {
 	}
 
 	let o2 = theform.o2.value;
+	let o5 = theform.o5.value;
 	if (o2 == 1) {
-		alert("test1");
 		let beta = theform.beta.value;
 		switch (true) {
 			case beta == "" || beta.trim() == "":
-				alert("test2");
 				alert("请在此输入数值。");
 				document.WWSForm.beta.focus();
 				return false;
-			case !beta.match(pos_real_number) || parseFloat(beta) <= 0:
-				alert("test3");
-				alert("该数值必须大于0");
+			case !beta.match(pos_real_number):
+				alert("请在此输入数值。");
 				document.WWSForm.beta.focus();
 				return false;
+		}
+
+		let slc = theform.slc.value;
+		switch (true) {
+			case slc == "" || slc.trim() == "":
+				alert("请在此输入数值。");
+				document.WWSForm.slc.focus();
+				return false;
+			case !slc.match(pos_real_number):
+				alert("请在此输入数值。");
+				document.WWSForm.slc.focus();
+				return false;
+		}
+		if (o1 == 1) {
+			if (o5 == 1) {
+				let Ksb = theform.Ksb.value;
+				switch (true) {
+					case Ksb == "" || Ksb.trim() == "":
+						alert("请在此输入数值。");
+						document.WWSForm.Ksb.focus();
+						return false;
+					case !Ksb.match(pos_real_number):
+						alert("请在此输入数值。");
+						document.WWSForm.Ksb.focus();
+						return false;
+				}
+				let xlook = theform.xlook.value;
+				switch (true) {
+					case xlook == "" || xlook.trim() == "":
+						alert("请在此输入数值。");
+						document.WWSForm.xlook.focus();
+						return false;
+					case !xlook.match(pos_real_number):
+						alert("请在此输入数值。");
+						document.WWSForm.xlook.focus();
+						return false;
+				}
+			}
 		}
 	}
 }
