@@ -2,7 +2,7 @@
 Date         : 2023-01-16 11:31:15
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2024-03-21 22:10:06
+LastEditTime : 2024-03-25 11:13:44
 LastEditors  : <BDFD>
 Description  : 
 FilePath     : \server.py
@@ -264,7 +264,7 @@ def wws():
         elif ad == "None":
             ad = "None"
         else:
-            ad = request.form["ad"]
+            ad = ad
         input_dic.update({"ad": ad})
         X = request.form["X"]  # 24.4#20#10 # fetch length (km)
         # 30.86#30#14.195#20/1.25 # 30# A known U10 (m/s)
@@ -283,7 +283,15 @@ def wws():
         input_dic.update({"o2": o2})
         if o2 == "1":
             beta = request.form["beta"]
+            if not beta.strip():
+                beta = 0
+            else:
+                beta = beta
             slc = request.form["slc"]
+            if not slc.strip():
+                slc = 0
+            else:
+                slc = slc
             input_dic.update({"beta": beta, "slc": slc})
             if o1 == "1":
                 o5 = request.form["o5"]
@@ -293,7 +301,15 @@ def wws():
                     xs = request.form["xs"]
                     d0 = request.form["d0"]
                     Ksb = request.form["Ksb"]
+                    if not Ksb.strip():
+                        Ksb = 0.0000036
+                    else:
+                        Ksb = Ksb
                     xlook = request.form["xlook"]
+                    if not xlook.strip():
+                        xlook = 0
+                    else:
+                        xlook = xlook
                     input_dic.update(
                         {"o4": o4, "xs": xs, "d0": d0, "Ksb": Ksb, "xlook": xlook})
         # catagory of known windspeed: #1) low-level overwater wind; 2) low-level overland wind (onshore wind at an anemometer immediately adjacent to water);
@@ -310,7 +326,7 @@ def wws():
                                o4=input_dic["o4"], o5=input_dic["o5"], xs=input_dic["xs"],
                                d0=input_dic["d0"], Ksb=input_dic["Ksb"], xlook=input_dic["xlook"],
                                heading=result[0], section1=result[1], section2=result[2], section3=result[3],
-                               section4=result[4], section5=result[5], section6=result[6],section7=result[7], 
+                               section4=result[4], section5=result[5], section6=result[6], section7=result[7],
                                section8_heading=result[8], section8=result[9], ending=result[10])
     else:
         return render_template("wws.html")

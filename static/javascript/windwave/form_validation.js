@@ -2,7 +2,7 @@
  * @Date         : 2022-12-12 12:31:04
  * @Author       : BDFD,bdfd2005@gmail.com
  * @Github       : https://github.com/bdfd
- * @LastEditTime : 2024-03-25 09:48:26
+ * @LastEditTime : 2024-03-25 11:50:41
  * @LastEditors  : <BDFD>
  * @Description  :
  * @FilePath     : \static\javascript\windwave\form_validation.js
@@ -15,6 +15,8 @@ function validateForm() {
 	let pos_real_number =
 		/([0-9]+\.?|^([0-9]*[.][0-9]*[1-9]+[0-9]*)$)|(^([0-9]*[1-9]+[0-9]*[.][0-9]+)$)|(^([1-9]+[0-9]*)$)/;
 	let pos_int_number = /^[1-9]+[0-9]*$/;
+	let input_list =
+		/^(?!.*(?:(^|,)\s*0\s*(?=,|$)|-[\d\.]+))(?![\s,]*$)(?![\s,]*\b(?:None|null|undefined|NaN)\b)[\d\.]+$/;
 
 	let o1 = theform.o1.value;
 	switch (true) {
@@ -30,6 +32,9 @@ function validateForm() {
 			// alert("Ad 无任何输入,作为None输出");
 			break;
 		case ad.trim() == "":
+			// alert("Ad 输入为多个空格,作为None输出");
+			break;
+		case ad.trim() == "None":
 			// alert("Ad 输入为多个空格,作为None输出");
 			break;
 		case !ad.match(pos_real_number) || parseFloat(ad) <= 1.5:
@@ -104,9 +109,7 @@ function validateForm() {
 		let beta = theform.beta.value;
 		switch (true) {
 			case beta == "" || beta.trim() == "":
-				alert("请在此输入数值。");
-				document.WWSForm.beta.focus();
-				return false;
+				break;
 			case !beta.match(pos_real_number):
 				alert("请在此输入数值。");
 				document.WWSForm.beta.focus();
@@ -116,35 +119,62 @@ function validateForm() {
 		let slc = theform.slc.value;
 		switch (true) {
 			case slc == "" || slc.trim() == "":
-				alert("请在此输入数值。");
-				document.WWSForm.slc.focus();
-				return false;
+				break;
 			case !slc.match(pos_real_number):
 				alert("请在此输入数值。");
 				document.WWSForm.slc.focus();
 				return false;
 		}
+
 		if (o1 == 1) {
 			if (o5 == 1) {
+				let xs = theform.xs.value;
+				switch (true) {
+					case xs == "" || xs.trim() == "":
+						alert("请在此输入数值。");
+						document.WWSForm.xs.focus();
+						return false;
+					case !xs.match(input_list):
+						alert("不得输入基点的值，且所有点的水深必须大于0。");
+						document.WWSForm.xs.focus();
+						return false;
+				}
+
+				let d0 = theform.d0.value;
+				switch (true) {
+					case d0 == "" || d0.trim() == "":
+						alert("请在此输入数值。");
+						document.WWSForm.d0.focus();
+						return false;
+					case !d0.match(input_list):
+						alert("不得输入基点的值，且所有点的水深必须大于0。");
+						document.WWSForm.d0.focus();
+						return false;
+				}
+
 				let Ksb = theform.Ksb.value;
 				switch (true) {
-					case Ksb == "" || Ksb.trim() == "":
-						alert("请在此输入数值。");
-						document.WWSForm.Ksb.focus();
-						return false;
-					case !Ksb.match(pos_real_number):
-						alert("请在此输入数值。");
+					case Ksb == "":
+						// alert("Ksb 无任何输入,作为None输出");
+						break;
+					case Ksb.trim() == "":
+						// alert("Ksb 输入为多个空格,作为None输出");
+						break;
+					case !Ksb.match(pos_real_number) && parseFloat(Ksb) <= 0:
+						alert("该数值必须大于0");
 						document.WWSForm.Ksb.focus();
 						return false;
 				}
 				let xlook = theform.xlook.value;
 				switch (true) {
-					case xlook == "" || xlook.trim() == "":
-						alert("请在此输入数值。");
-						document.WWSForm.xlook.focus();
-						return false;
-					case !xlook.match(pos_real_number):
-						alert("请在此输入数值。");
+					case xlook == "":
+						// alert("xlook 无任何输入,作为None输出");
+						break;
+					case xlook.trim() == "":
+						// alert("xlook 输入为多个空格,作为None输出");
+						break;
+					case !xlook.match(pos_real_number) && parseFloat(xlook) <= 0:
+						alert("无法在基点的岸侧查看风壅增水。");
 						document.WWSForm.xlook.focus();
 						return false;
 				}
