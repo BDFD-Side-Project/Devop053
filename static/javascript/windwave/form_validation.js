@@ -2,15 +2,13 @@
  * @Date         : 2022-12-12 12:31:04
  * @Author       : BDFD,bdfd2005@gmail.com
  * @Github       : https://github.com/bdfd
- * @LastEditTime : 2024-03-24 22:33:57
+ * @LastEditTime : 2024-03-24 22:53:43
  * @LastEditors  : <BDFD>
  * @Description  :
  * @FilePath     : \static\javascript\windwave\form_validation.js
  * Copyright (c) 2022 by BDFD, All Rights Reserved.
  */
 console.log("Test for Wind Wave Validation Form");
-o2 = theform.o2.value;
-console.log("o2 value is", theform.o2.value);
 
 function validateForm() {
 	var theform = document.getElementById("WWSForm");
@@ -102,6 +100,19 @@ function validateForm() {
 
 	let o2 = theform.o2.value;
 	if (o2 == 1) {
-		console.log("Hello World!");
+		alert("test1");
+		let beta = theform.beta.value;
+		switch (true) {
+			case beta == "" || beta.trim() == "":
+				alert("test2");
+				alert("请在此输入数值。");
+				document.WWSForm.beta.focus();
+				return false;
+			case !beta.match(pos_real_number) || parseFloat(beta) <= 0:
+				alert("test3");
+				alert("该数值必须大于0");
+				document.WWSForm.beta.focus();
+				return false;
+		}
 	}
 }
