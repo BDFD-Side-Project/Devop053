@@ -2,7 +2,7 @@
  * @Date         : 2022-12-12 12:31:04
  * @Author       : BDFD,bdfd2005@gmail.com
  * @Github       : https://github.com/bdfd
- * @LastEditTime : 2024-03-25 11:50:41
+ * @LastEditTime : 2024-03-25 12:29:28
  * @LastEditors  : <BDFD>
  * @Description  :
  * @FilePath     : \static\javascript\windwave\form_validation.js
@@ -15,8 +15,7 @@ function validateForm() {
 	let pos_real_number =
 		/([0-9]+\.?|^([0-9]*[.][0-9]*[1-9]+[0-9]*)$)|(^([0-9]*[1-9]+[0-9]*[.][0-9]+)$)|(^([1-9]+[0-9]*)$)/;
 	let pos_int_number = /^[1-9]+[0-9]*$/;
-	let input_list =
-		/^(?!.*(?:(^|,)\s*0\s*(?=,|$)|-[\d\.]+))(?![\s,]*$)(?![\s,]*\b(?:None|null|undefined|NaN)\b)[\d\.]+$/;
+	let input_list = /^(\d+(\.\d+)?)(,\d+(\.\d+)?)*$/;
 
 	let o1 = theform.o1.value;
 	switch (true) {
