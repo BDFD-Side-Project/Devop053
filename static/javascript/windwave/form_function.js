@@ -2,7 +2,7 @@
  * @Date         : 2024-03-05 18:42:12
  * @Author       : BDFD,bdfd2005@gmail.com
  * @Github       : https://github.com/bdfd
- * @LastEditTime : 2024-03-20 14:50:07
+ * @LastEditTime : 2024-03-26 15:03:53
  * @LastEditors  : <BDFD>
  * @Description  :
  * @FilePath     : \static\javascript\windwave\form_function.js
@@ -10,7 +10,7 @@
  */
 console.log("WWS Form Check Function Page Test Msg");
 var theform = document.getElementById("WWSForm");
-console.log(theform.o1.value);
+// console.log(theform.o1.value);
 theform.o2[0].addEventListener("click", function () {
 	if (this.checked && theform.o1.value == "1") {
 		theform.beta.disabled = false;

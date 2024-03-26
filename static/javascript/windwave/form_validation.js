@@ -2,7 +2,7 @@
  * @Date         : 2022-12-12 12:31:04
  * @Author       : BDFD,bdfd2005@gmail.com
  * @Github       : https://github.com/bdfd
- * @LastEditTime : 2024-03-25 13:26:14
+ * @LastEditTime : 2024-03-26 17:01:56
  * @LastEditors  : <BDFD>
  * @Description  :
  * @FilePath     : \static\javascript\windwave\form_validation.js
@@ -36,7 +36,10 @@ function validateForm() {
 		case ad.trim() == "None":
 			// alert("Ad 输入为多个空格,作为None输出");
 			break;
-		case !ad.match(pos_real_number) || parseFloat(ad) <= 1.5:
+		case ad.trim() == "默认为深水":
+			// alert("Ad 输入为多个空格,作为None输出");
+			break;
+		case !ad.match(pos_real_number) || parseFloat(ad) < 1.5:
 			alert("水深太浅 (<1.5 m)，不建议采用本单元的方法。");
 			document.WWSForm.ad.focus();
 			return false;
@@ -102,8 +105,6 @@ function validateForm() {
 			return false;
 	}
 
-	let o2 = theform.o2.value;
-	let o5 = theform.o5.value;
 	if (o2 == 1) {
 		// let beta = theform.beta.value;
 		// switch (true) {

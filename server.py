@@ -2,7 +2,7 @@
 Date         : 2023-01-16 11:31:15
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2024-03-25 11:13:44
+LastEditTime : 2024-03-26 14:16:38
 LastEditors  : <BDFD>
 Description  : 
 FilePath     : \server.py
@@ -260,9 +260,9 @@ def wws():
         # print("ad is ",request.form["ad"])
         ad = request.form["ad"]
         if not ad.strip():
-            ad = "None"
+            ad = "默认为深水"
         elif ad == "None":
-            ad = "None"
+            ad = "默认为深水"
         else:
             ad = ad
         input_dic.update({"ad": ad})
