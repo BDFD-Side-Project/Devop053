@@ -2,7 +2,7 @@
  * @Date         : 2022-12-12 12:31:04
  * @Author       : BDFD,bdfd2005@gmail.com
  * @Github       : https://github.com/bdfd
- * @LastEditTime : 2024-03-26 17:33:20
+ * @LastEditTime : 2024-03-26 18:00:36
  * @LastEditors  : <BDFD>
  * @Description  :
  * @FilePath     : \static\javascript\windwave\form_validation.js
@@ -107,7 +107,7 @@ function validateForm() {
 
 	let o2 = theform.o2.value;
 	switch (true) {
-		case o2 != 1 && o2 != 2 && o2 != 3:
+		case o2 != 1 && o2 != 2:
 			alert("请选择是否计算风壅增水。");
 			document.WWSForm.o2[0].focus();
 			return false;
@@ -141,7 +141,7 @@ function validateForm() {
 		if (o1 == 1) {
 			let o5 = theform.o5.value;
 			switch (true) {
-				case o5 != 1 && o5 != 2 && o5 != 3:
+				case o5 != 1 && o5 != 2:
 					alert("请选择是否有水深剖面数据。");
 					document.WWSForm.o5[0].focus();
 					return false;
@@ -149,7 +149,7 @@ function validateForm() {
 			if (o5 == 1) {
 				let o4 = theform.o4.value;
 				switch (true) {
-					case o4 != 1 && o4 != 2 && o4 != 3:
+					case o4 != 1 && o4 != 2:
 						alert("请选择水域底坡特点。");
 						document.WWSForm.o4[0].focus();
 						return false;
@@ -186,7 +186,7 @@ function validateForm() {
 					case Ksb.trim() == "":
 						// alert("Ksb 输入为多个空格,作为None输出");
 						break;
-					case !Ksb.match(pos_real_number) && parseFloat(Ksb) <= 0:
+					case !Ksb.match(pos_real_number) &&  parseFloat(Ksb) <= 0:
 						alert("该数值必须大于0");
 						document.WWSForm.Ksb.focus();
 						return false;
@@ -199,7 +199,7 @@ function validateForm() {
 					case xlook.trim() == "":
 						// alert("xlook 输入为多个空格,作为None输出");
 						break;
-					case !xlook.match(pos_real_number) && parseFloat(xlook) > 0:
+					case !xlook.match(pos_real_number) && parseFloat(xlook) <= 0:
 						alert("无法在基点的岸侧查看风壅增水。");
 						document.WWSForm.xlook.focus();
 						return false;
