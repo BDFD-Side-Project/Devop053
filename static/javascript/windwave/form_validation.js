@@ -2,7 +2,7 @@
  * @Date         : 2022-12-12 12:31:04
  * @Author       : BDFD,bdfd2005@gmail.com
  * @Github       : https://github.com/bdfd
- * @LastEditTime : 2024-03-26 18:00:36
+ * @LastEditTime : 2024-03-27 00:07:44
  * @LastEditors  : <BDFD>
  * @Description  :
  * @FilePath     : \static\javascript\windwave\form_validation.js
@@ -105,15 +105,22 @@ function validateForm() {
 			return false;
 	}
 
-	let o2 = theform.o2.value;
-	switch (true) {
-		case o2 != 1 && o2 != 2:
-			alert("请选择是否计算风壅增水。");
-			document.WWSForm.o2[0].focus();
-			return false;
+	let o2 = theform.o2;
+	let o2_isChecked = false;
+
+	for (var i = 0; i < o2.length; i++) {
+		if (o2[i].checked) {
+			o2_isChecked = true;
+			break;
+		}
 	}
 
-	if (o2 == 1) {
+	if (!o2_isChecked) {
+		alert("请选择是否计算风壅增水。");
+		document.WWSForm.o2[0].focus();
+		return false; // Prevent form submission
+	}
+	if (o2.value == 1) {
 		// let beta = theform.beta.value;
 		// switch (true) {
 		// 	case beta == "" || beta.trim() == "":
@@ -139,21 +146,39 @@ function validateForm() {
 		// }
 
 		if (o1 == 1) {
-			let o5 = theform.o5.value;
-			switch (true) {
-				case o5 != 1 && o5 != 2:
-					alert("请选择是否有水深剖面数据。");
-					document.WWSForm.o5[0].focus();
-					return false;
-			}
-			if (o5 == 1) {
-				let o4 = theform.o4.value;
-				switch (true) {
-					case o4 != 1 && o4 != 2:
-						alert("请选择水域底坡特点。");
-						document.WWSForm.o4[0].focus();
-						return false;
+			let o5 = theform.o5;
+			let o5_isChecked = false;
+
+			for (var i = 0; i < o5.length; i++) {
+				if (o5[i].checked) {
+					o5_isChecked = true;
+					break;
 				}
+			}
+
+			if (!o5_isChecked) {
+				alert("请选择是否有水深剖面数据。");
+				document.WWSForm.o5[0].focus();
+				return false; // Prevent form submission
+			}
+
+			if (o5.value == 1) {
+				let o4 = theform.o4;
+				let o4_isChecked = false;
+
+				for (var i = 0; i < o4.length; i++) {
+					if (o4[i].checked) {
+						o4_isChecked = true;
+						break;
+					}
+				}
+
+				if (!o4_isChecked) {
+					alert("请选择水域底坡特点。");
+					document.WWSForm.o4[0].focus();
+					return false; // Prevent form submission
+				}
+
 				let xs = theform.xs.value;
 				switch (true) {
 					case xs == "" || xs.trim() == "":
@@ -186,7 +211,7 @@ function validateForm() {
 					case Ksb.trim() == "":
 						// alert("Ksb 输入为多个空格,作为None输出");
 						break;
-					case !Ksb.match(pos_real_number) &&  parseFloat(Ksb) <= 0:
+					case !Ksb.match(pos_real_number) && parseFloat(Ksb) <= 0:
 						alert("该数值必须大于0");
 						document.WWSForm.Ksb.focus();
 						return false;
