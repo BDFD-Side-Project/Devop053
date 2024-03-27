@@ -2,7 +2,7 @@
  * @Date         : 2024-03-05 18:42:12
  * @Author       : BDFD,bdfd2005@gmail.com
  * @Github       : https://github.com/bdfd
- * @LastEditTime : 2024-03-27 01:41:46
+ * @LastEditTime : 2024-03-27 01:47:18
  * @LastEditors  : <BDFD>
  * @Description  :
  * @FilePath     : \static\javascript\windwave\form_function.js
@@ -13,7 +13,7 @@ var theform = document.getElementById("WWSForm");
 // console.log(theform.o1.value);
 theform.o1.addEventListener("change", function (event) {
 	let selectedOption = event.target.value;
-	console.log(selectedOption);
+	// console.log(selectedOption);
 	if (selectedOption == 1 && theform.o2.value == 1) {
 		theform.beta.disabled = false;
 		theform.slc.disabled = false;
