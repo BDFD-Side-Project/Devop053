@@ -2,7 +2,7 @@
  * @Date         : 2024-03-05 18:42:12
  * @Author       : BDFD,bdfd2005@gmail.com
  * @Github       : https://github.com/bdfd
- * @LastEditTime : 2024-03-27 01:47:18
+ * @LastEditTime : 2024-03-27 01:52:47
  * @LastEditors  : <BDFD>
  * @Description  :
  * @FilePath     : \static\javascript\windwave\form_function.js
@@ -20,10 +20,6 @@ theform.o1.addEventListener("change", function (event) {
 		theform.o5[0].disabled = false;
 		theform.o5[1].disabled = false;
 	} else {
-		theform.beta.value = "";
-		theform.beta.disabled = true;
-		theform.slc.value = "";
-		theform.slc.disabled = true;
 		theform.o5[0].checked = "";
 		theform.o5[1].checked = "";
 		theform.o5[0].disabled = true;
