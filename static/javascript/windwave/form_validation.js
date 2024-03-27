@@ -2,7 +2,7 @@
  * @Date         : 2022-12-12 12:31:04
  * @Author       : BDFD,bdfd2005@gmail.com
  * @Github       : https://github.com/bdfd
- * @LastEditTime : 2024-03-27 01:24:52
+ * @LastEditTime : 2024-03-27 01:32:56
  * @LastEditors  : <BDFD>
  * @Description  :
  * @FilePath     : \static\javascript\windwave\form_validation.js
@@ -239,7 +239,7 @@ function validateForm() {
 					case xlook.trim() == "":
 						// alert("xlook 输入为多个空格,作为None输出");
 						break;
-					case !xlook.match(pos_real_number):
+					case !xlook.match(pos_real_number) || parseFloat(xlook) < 0:
 						alert("无法在基点的岸侧查看风壅增水");
 						document.WWSForm.xlook.focus();
 						return false;
