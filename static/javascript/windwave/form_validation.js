@@ -2,7 +2,7 @@
  * @Date         : 2022-12-12 12:31:04
  * @Author       : BDFD,bdfd2005@gmail.com
  * @Github       : https://github.com/bdfd
- * @LastEditTime : 2024-03-27 00:49:15
+ * @LastEditTime : 2024-03-27 01:22:31
  * @LastEditors  : <BDFD>
  * @Description  :
  * @FilePath     : \static\javascript\windwave\form_validation.js
@@ -217,6 +217,20 @@ function validateForm() {
 						return false;
 				}
 
+				let numbersArray = xs.split(",");
+				// Convert each string to a number
+				numbersArray = numbersArray.map(function (item) {
+					return parseFloat(item);
+				});
+				// Filter out non-numeric values
+				numbersArray = numbersArray.filter(function (item) {
+					return !isNaN(item);
+				});
+				alert(numbersArray);
+				// Find the maximum value
+				var maxValue = Math.max.apply(null, numbersArray);
+				alert(maxValue);
+
 				let xlook = theform.xlook.value;
 				switch (true) {
 					case xlook == "":
@@ -225,8 +239,12 @@ function validateForm() {
 					case xlook.trim() == "":
 						// alert("xlook 输入为多个空格,作为None输出");
 						break;
-					case !xlook.match(pos_real_number) || parseFloat(xlook) < 0:
+					case !xlook.match(pos_real_number):
 						alert("无法在基点的岸侧查看风壅增水");
+						document.WWSForm.xlook.focus();
+						return false;
+					case parseFloat(xlook) > maxValue:
+						alert("大于xs的最大数值,无法在基点的岸侧查看风壅增水");
 						document.WWSForm.xlook.focus();
 						return false;
 				}
