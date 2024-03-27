@@ -2,7 +2,7 @@
  * @Date         : 2022-12-12 12:31:04
  * @Author       : BDFD,bdfd2005@gmail.com
  * @Github       : https://github.com/bdfd
- * @LastEditTime : 2024-03-27 01:22:31
+ * @LastEditTime : 2024-03-27 01:24:52
  * @LastEditors  : <BDFD>
  * @Description  :
  * @FilePath     : \static\javascript\windwave\form_validation.js
@@ -226,10 +226,10 @@ function validateForm() {
 				numbersArray = numbersArray.filter(function (item) {
 					return !isNaN(item);
 				});
-				alert(numbersArray);
+				// alert(numbersArray);
 				// Find the maximum value
 				var maxValue = Math.max.apply(null, numbersArray);
-				alert(maxValue);
+				// alert(maxValue);
 
 				let xlook = theform.xlook.value;
 				switch (true) {
