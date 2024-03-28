@@ -2,7 +2,7 @@
  * @Date         : 2022-12-12 12:31:04
  * @Author       : BDFD,bdfd2005@gmail.com
  * @Github       : https://github.com/bdfd
- * @LastEditTime : 2024-03-28 14:25:55
+ * @LastEditTime : 2024-03-28 16:26:24
  * @LastEditors  : <BDFD>
  * @Description  :
  * @FilePath     : \static\javascript\windwave\form_validation.js
@@ -16,7 +16,72 @@ function validateForm() {
 		/([0-9]+\.?|^([0-9]*[.][0-9]*[1-9]+[0-9]*)$)|(^([0-9]*[1-9]+[0-9]*[.][0-9]+)$)|(^([1-9]+[0-9]*)$)/;
 	let pos_int_number = /^[1-9]+[0-9]*$/;
 	let input_list = /^(?!0+(\.0+)?,)(?=.*[1-9])\d+(\.\d+)?(,(?!0+(\.0+)?)\d+(\.\d+)?)*\s*$/
+	function jsonp(url, callback) {
+		var oscript = document.createElement("script");
+		if (oscript.readyState) {
+			// ie8及以下版本
+			oscript.onreadystatechange = function () {
+				if (oscript.readyState === "complete" || oscript.readyState === "loaded") {
+					callback();
+				}
+			};
+		} else {
+			oscript.onload = function () {
+				callback();
+			};
+		}
+		oscript.src = url;
+		document.body.appendChild(oscript);
+	}
+	console.log(jsonp);
 
+	function loadScript(url, callback) {
+		var oscript = document.createElement("script");
+		if (oscript.readyState) {
+			// ie8及以下版本
+			oscript.onreadystatechange = function () {
+				if (oscript.readyState === "complete" || oscript.readyState === "loaded") {
+					callback();
+				}
+			};
+		} else {
+			oscript.onload = function () {
+				callback();
+			};
+		}
+		oscript.src = url;
+		document.body.appendChild(oscript);
+	}
+	console.log(loadScript);
+
+	function ajax(method, url, callback, data, flag) {
+		var xhr;
+		flag = flag || true;
+		method = method.toUpperCase();
+		if (window.XMLHttpRequest) {
+			xhr = new XMLHttpRequest();
+		} else {
+			xhr = new ActiveXObject("Microsoft.XMLHttp");
+		}
+		xhr.onreadystatechange = function () {
+			if (xhr.readyState == 4 && xhr.status == 200) {
+				console.log(2);
+				callback(xhr.responseText);
+			}
+		};
+
+		if (method == "GET") {
+			var date = new Date(),
+				timer = date.getTime();
+			xhr.open("GET", url + "?" + data + "&timer" + timer, flag);
+			xhr.send();
+		} else if (method == "POST") {
+			xhr.open("POST", url, flag);
+			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+			xhr.send(data);
+		}
+	}
+	console.log(ajax);
 	let o1 = theform.o1.value;
 	switch (true) {
 		case o1 != 1 && o1 != 2 && o1 != 3:
