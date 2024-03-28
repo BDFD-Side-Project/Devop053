@@ -2,7 +2,7 @@
  * @Date         : 2022-12-12 12:31:04
  * @Author       : BDFD,bdfd2005@gmail.com
  * @Github       : https://github.com/bdfd
- * @LastEditTime : 2024-03-28 09:49:31
+ * @LastEditTime : 2024-03-28 12:28:03
  * @LastEditors  : <BDFD>
  * @Description  :
  * @FilePath     : \static\javascript\windwave\form_validation.js
@@ -116,7 +116,7 @@ function validateForm() {
 	}
 
 	if (!o2_isChecked) {
-		alert("请选择是否计算'风壅增水。'");
+		alert("请选择'是否计算风壅增水'。");
 		document.WWSForm.o2[0].focus();
 		return false; // Prevent form submission
 	}
@@ -157,7 +157,7 @@ function validateForm() {
 			}
 
 			if (!o5_isChecked) {
-				alert("请选择是否有'水深剖面数据。'");
+				alert("请选择'是否有水深剖面数据'。");
 				document.WWSForm.o5[0].focus();
 				return false; // Prevent form submission
 			}
