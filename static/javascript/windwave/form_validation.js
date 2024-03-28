@@ -2,7 +2,7 @@
  * @Date         : 2022-12-12 12:31:04
  * @Author       : BDFD,bdfd2005@gmail.com
  * @Github       : https://github.com/bdfd
- * @LastEditTime : 2024-03-27 01:32:56
+ * @LastEditTime : 2024-03-28 09:49:31
  * @LastEditors  : <BDFD>
  * @Description  :
  * @FilePath     : \static\javascript\windwave\form_validation.js
@@ -52,7 +52,7 @@ function validateForm() {
 			document.WWSForm.X.focus();
 			return false;
 		case !X.match(pos_real_number) || parseFloat(X) <= 0:
-			alert("该数值必须大于0");
+			alert("该数值必须大于0。");
 			document.WWSForm.X.focus();
 			return false;
 	}
@@ -64,7 +64,7 @@ function validateForm() {
 			document.WWSForm.U10k.focus();
 			return false;
 		case !U10k.match(pos_real_number) || parseFloat(U10k) <= 0:
-			alert("该数值必须大于0");
+			alert("该数值必须大于0。");
 			document.WWSForm.U10k.focus();
 			return false;
 	}
@@ -76,7 +76,7 @@ function validateForm() {
 			document.WWSForm.atm.focus();
 			return false;
 		case !atm.match(pos_real_number) || parseFloat(atm) <= 0:
-			alert("该数值必须大于0");
+			alert("该数值必须大于0。");
 			document.WWSForm.atm.focus();
 			return false;
 	}
@@ -88,7 +88,7 @@ function validateForm() {
 			document.WWSForm.atr.focus();
 			return false;
 		case !atr.match(pos_real_number) || parseFloat(atr) <= 0:
-			alert("该数值必须大于0");
+			alert("该数值必须大于0。");
 			document.WWSForm.atr.focus();
 			return false;
 	}
@@ -116,7 +116,7 @@ function validateForm() {
 	}
 
 	if (!o2_isChecked) {
-		alert("请选择是否计算风壅增水。");
+		alert("请选择是否计算'风壅增水。'");
 		document.WWSForm.o2[0].focus();
 		return false; // Prevent form submission
 	}
@@ -157,7 +157,7 @@ function validateForm() {
 			}
 
 			if (!o5_isChecked) {
-				alert("请选择是否有水深剖面数据。");
+				alert("请选择是否有'水深剖面数据。'");
 				document.WWSForm.o5[0].focus();
 				return false; // Prevent form submission
 			}
@@ -174,7 +174,7 @@ function validateForm() {
 				}
 
 				if (!o4_isChecked) {
-					alert("请选择水域底坡特点。");
+					alert("请选择'水域底坡特点。'");
 					document.WWSForm.o4[0].focus();
 					return false; // Prevent form submission
 				}
@@ -212,7 +212,7 @@ function validateForm() {
 						// alert("Ksb 输入为多个空格,作为None输出");
 						break;
 					case !Ksb.match(pos_real_number) || parseFloat(Ksb) <= 0:
-						alert("该数值必须大于0");
+						alert("该数值必须大于0。");
 						document.WWSForm.Ksb.focus();
 						return false;
 				}
@@ -240,11 +240,11 @@ function validateForm() {
 						// alert("xlook 输入为多个空格,作为None输出");
 						break;
 					case !xlook.match(pos_real_number) || parseFloat(xlook) < 0:
-						alert("无法在基点的岸侧查看风壅增水");
+						alert("无法在基点的岸侧查看风壅增水。");
 						document.WWSForm.xlook.focus();
 						return false;
 					case parseFloat(xlook) > maxValue:
-						alert("大于xs的最大数值,无法在基点的岸侧查看风壅增水");
+						alert("无法在水深剖面范围以外查看风壅增水。");
 						document.WWSForm.xlook.focus();
 						return false;
 				}
