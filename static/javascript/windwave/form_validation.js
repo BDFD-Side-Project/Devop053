@@ -2,7 +2,7 @@
  * @Date         : 2022-12-12 12:31:04
  * @Author       : BDFD,bdfd2005@gmail.com
  * @Github       : https://github.com/bdfd
- * @LastEditTime : 2024-03-28 12:28:03
+ * @LastEditTime : 2024-03-28 13:40:38
  * @LastEditors  : <BDFD>
  * @Description  :
  * @FilePath     : \static\javascript\windwave\form_validation.js
@@ -15,7 +15,7 @@ function validateForm() {
 	let pos_real_number =
 		/([0-9]+\.?|^([0-9]*[.][0-9]*[1-9]+[0-9]*)$)|(^([0-9]*[1-9]+[0-9]*[.][0-9]+)$)|(^([1-9]+[0-9]*)$)/;
 	let pos_int_number = /^[1-9]+[0-9]*$/;
-	let input_list = /^(\d+(\.\d+)?)(,\d+(\.\d+)?)*$/;
+	let input_list = /^(\d+(\.\d+)?)(,\d+(\.\d+)?)*\s*$/;
 
 	let o1 = theform.o1.value;
 	switch (true) {
@@ -186,7 +186,7 @@ function validateForm() {
 						document.WWSForm.xs.focus();
 						return false;
 					case !xs.match(input_list):
-						alert("不得输入基点的值，且所有点的水深必须大于0。");
+						alert("请按格式要求输入数值。");
 						document.WWSForm.xs.focus();
 						return false;
 				}
@@ -198,7 +198,7 @@ function validateForm() {
 						document.WWSForm.d0.focus();
 						return false;
 					case !d0.match(input_list):
-						alert("不得输入基点的值，且所有点的水深必须大于0。");
+						alert("请按格式要求输入数值。");
 						document.WWSForm.d0.focus();
 						return false;
 				}
