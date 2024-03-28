@@ -1,0 +1,45 @@
+<!--
+ * @Date         : 2024-03-27 00:16:24
+ * @Author       : BDFD,bdfd2005@gmail.com
+ * @Github       : https://github.com/bdfd
+ * @LastEditTime : 2024-03-27 00:16:42
+ * @LastEditors  : <BDFD>
+ * @Description  : 
+ * @FilePath     : \test.html
+ * Copyright (c) 2024 by BDFD, All Rights Reserved. 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Box Validation</title>
+    <script>
+        function validateInput() {
+            var inputValue = document.getElementById('numberInput').value;
+
+            // Check if the input is empty or not a number
+            if (inputValue.trim() === '') {
+                return true; // Allow empty input
+            } else if (!isFinite(inputValue) || parseFloat(inputValue) <= 0) {
+                alert('Please enter a valid number greater than zero.');
+                return false; // Prevent form submission
+            }
+
+            return true; // Proceed with form submission
+        }
+    </script>
+</head>
+
+<body>
+
+    <form onsubmit="return validateInput()">
+        <label for="numberInput">Enter a number greater than zero:</label><br>
+        <input type="text" id="numberInput" name="numberInput"><br>
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+
+</html>

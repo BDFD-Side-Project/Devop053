@@ -2,7 +2,7 @@
  * @Date         : 2024-03-05 11:42:15
  * @Author       : BDFD,bdfd2005@gmail.com
  * @Github       : https://github.com/bdfd
- * @LastEditTime : 2024-03-07 11:53:34
+ * @LastEditTime : 2024-03-20 13:24:16
  * @LastEditors  : <BDFD>
  * @Description  : 
  * @FilePath     : \templates\calculation\wws\wws_o1.html
@@ -19,6 +19,46 @@
         <option value="3">水库/湖泊/内河</option>
     </select>
 </div> -->
+{% if o1 == "1" %}
+<div class="input-group" style="height:25px;">
+    <span style="font-family:楷体;font-size:14px;margin-left:6px;">水域</span>
+    <div class="form-check form-check-inline"
+        style="margin-left:128px;margin-right:0px;">
+        <select name="o1" style="height:25px;width:432px;">
+            <option value="1" hidden>开敞海域；上风向开阔、无掩护的海岸水域</option>
+            <option value="1">开敞海域；上风向开阔、无掩护的海岸水域</option>
+            <option value="2">相对封闭的海岸水域（港湾、河口）</option>
+            <option value="3">水库/湖泊/内河</option>
+        </select>
+    </div>
+</div>
+{% elif o1 == "2" %}
+<div class="input-group" style="height:25px;">
+    <span style="font-family:楷体;font-size:14px;margin-left:6px;">水域</span>
+    <div class="form-check form-check-inline"
+        style="margin-left:128px;margin-right:0px;">
+        <select name="o1" style="height:25px;width:432px;">
+            <option value="2" hidden>相对封闭的海岸水域（港湾、河口）</option>
+            <option value="1">开敞海域；上风向开阔、无掩护的海岸水域</option>
+            <option value="2">相对封闭的海岸水域（港湾、河口）</option>
+            <option value="3">水库/湖泊/内河</option>
+        </select>
+    </div>
+</div>
+{% elif o1 == "3" %}
+<div class="input-group" style="height:25px;">
+    <span style="font-family:楷体;font-size:14px;margin-left:6px;">水域</span>
+    <div class="form-check form-check-inline"
+        style="margin-left:128px;margin-right:0px;">
+        <select name="o1" style="height:25px;width:432px;">
+            <option value="3" hidden>水库/湖泊/内河</option>
+            <option value="1">开敞海域；上风向开阔、无掩护的海岸水域</option>
+            <option value="2">相对封闭的海岸水域（港湾、河口）</option>
+            <option value="3">水库/湖泊/内河</option>
+        </select>
+    </div>
+</div>
+{% else %}
 <div class="input-group" style="height:25px;">
     <span style="font-family:楷体;font-size:14px;margin-left:6px;">水域</span>
     <div class="form-check form-check-inline"
@@ -38,3 +78,4 @@
         </select> -->
     </div>
 </div>
+{% endif %}

@@ -1,0 +1,69 @@
+<!--
+ * @Date         : 2022-12-17 21:58:19
+ * @Author       : BDFD,bdfd2005@gmail.com
+ * @Github       : https://github.com/bdfd
+ * @LastEditTime : 2024-03-19 18:24:49
+ * @LastEditors  : <BDFD>
+ * @Description  : 
+ * @FilePath     : \templates\calculation\wws\wws_result_table.html
+ * Copyright (c) 2022 by BDFD, All Rights Reserved. 
+-->
+{% if section8 %}
+<p style="margin-bottom: 0px;margin-left: 10px;">
+    ---结果汇总---</p>
+{% if section8_heading %}
+<table width="599" style="font-size:small">
+    <tr>
+        <th
+            style="width:70px;text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+            {{section8_heading[0]}}
+        </th>
+        <th
+            style="width:67px;text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+            {{section8_heading[1]}}
+        </th>
+        <th
+            style="width:67px;text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+            {{section8_heading[2]}}
+        </th>
+        <th
+            style="width:67px;text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+            {{section8_heading[3]}}
+        </th>
+        <th
+            style="width:67px;text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+            {{section8_heading[4]}}
+        </th>
+        <th
+            style="width:67px;text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+            {{section8_heading[5]}}
+        </th>
+        <th
+            style="width:67px;text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+            {{section8_heading[6]}}
+        </th>
+        <th
+            style="width:67px;text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+            {{section8_heading[7]}}
+        </th>
+        <th
+            style="width:67px;text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+            {{section8_heading[8]}}
+        </th>
+        <th
+            style="width:67px;text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+            {{section8_heading[9]}}
+        </th>
+    </tr>
+    {% for row in section8 %}
+    <tr>
+        {% for cell in row %}
+        <td
+            style="width:67px;text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+            {{cell}}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+<br />

@@ -2,87 +2,451 @@
  * @Date         : 2024-03-05 18:42:12
  * @Author       : BDFD,bdfd2005@gmail.com
  * @Github       : https://github.com/bdfd
- * @LastEditTime : 2024-03-07 20:26:46
+ * @LastEditTime : 2024-03-21 23:22:47
  * @LastEditors  : <BDFD>
  * @Description  : 
  * @FilePath     : \templates\calculation\wws\wws_o5.html
  * Copyright (c) 2024 by BDFD, All Rights Reserved. 
 -->
-<label for="是否计算风壅增水?" class="form-label"
-    style="font-family:楷体;font-size:14px;margin-left:6px">是否有水深剖面数据（直到风壅增水为零的位置）?
-    <sup style="font-family: 'Times New Roman', Times, serif;">8</sup></label>
-&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-<div class="form-check form-check-inline">
-    <input class="form-check-input" type="radio" id="inlineRadio1" name="o5"
-        value="1" disabled="disabled">
-    <label class="form-check-label" for="inlineRadio1"
-        style="font-family:楷体;font-size:14px;">是</label>
+<div>{% if o2 == "1" %}
+    <div>{% if o5 == "1" %}
+        <label for="是否计算风壅增水?" class="form-label"
+            style="font-family:楷体;font-size:14px;margin-left:6px">是否有水深剖面数据（直到风壅增水为零的位置）?
+            <sup
+                style="font-family: 'Times New Roman', Times, serif;">8</sup></label>
+        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="inlineRadio1"
+                name="o5" value="1" checked>
+            <label class="form-check-label" for="inlineRadio1"
+                style="font-family:楷体;font-size:14px;">是</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="inlineRadio2"
+                name="o5" value="0">
+            <label class="form-check-label" for="inlineRadio2"
+                style="font-family:楷体;font-size:14px;">否</label>
+        </div>
+        <br />
+        <div>{% if o4 == "1" %}
+            <label for="水域底坡特点?" class="form-label"
+                style="font-family:楷体;font-size:14px;margin-left:6px">水域底坡特点?</label>
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <div class="form-check form-check-inline" style="margin-left:31px">
+                <input class="form-check-input" type="radio" id="inlineRadio1"
+                    name="o4" value="1" checked>
+                <label class="form-check-label" for="inlineRadio1"
+                    style="font-family:楷体;font-size:14px;">恒定坡</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="inlineRadio2"
+                    name="o4" value="0">
+                <label class="form-check-label" for="inlineRadio2"
+                    style="font-family:楷体;font-size:14px;">非恒定坡</label>
+            </div>
+            <div class="input-group">
+                <span
+                    style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">水深剖面水深点的位置
+                    (m) <sup
+                        style="font-family: 'Times New Roman', Times, serif;">9</sup></span>
+                <div style="margin-left:2px">
+                    <textarea class="form-control" rows="2" name="xs"
+                        value="{{xs}}"
+                        style="font-family:'Times New Roman';width:431px;font-size:14px;resize:none">{{xs}}</textarea>
+                </div>
+            </div>
+            <div class="input-group">
+                <span
+                    style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">水深剖面的水深
+                    (m) <sup>10</sup></span>
+                <div style="margin-left:38px">
+                    <textarea class="form-control" rows="2" name="d0"
+                        value="{{d0}}"
+                        style="font-family:'Times New Roman';width:432px;font-size:14px;resize:none">{{d0}}</textarea>
+                </div>
+            </div>
+            <div class="input-group">
+                <span
+                    style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">综合摩阻系数
+                    <sup>11</sup></span>
+                <div style="margin-left:10px">
+                    <input type=" text" class="form-control" name="Ksb"
+                        value="{{Ksb}}"
+                        style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:66px;border-radius:5px">
+                </div>
+                &nbsp&nbsp&nbsp
+                <span
+                    style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:10px">查看风壅增水的位置
+                    (m)
+                    <sup>12</sup></span>
+                <div style="margin-left:10px"><input type=" text"
+                        class="form-control" name="xlook" value="{{xlook}}"
+                        style="font-family:'Times New Roman';height:25px;width:116px;font-size:14px;margin-left:-4px;border-radius:5px">
+                </div>
+            </div>
+        </div>
+        <div>{% elif o4 == "0" %}
+            <label for="水域底坡特点?" class="form-label"
+                style="font-family:楷体;font-size:14px;margin-left:6px">水域底坡特点?</label>
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <div class="form-check form-check-inline" style="margin-left:31px">
+                <input class="form-check-input" type="radio" id="inlineRadio1"
+                    name="o4" value="1">
+                <label class="form-check-label" for="inlineRadio1"
+                    style="font-family:楷体;font-size:14px;">恒定坡</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="inlineRadio2"
+                    name="o4" value="0" checked>
+                <label class="form-check-label" for="inlineRadio2"
+                    style="font-family:楷体;font-size:14px;">非恒定坡</label>
+            </div>
+            <div class="input-group">
+                <span
+                    style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">水深剖面水深点的位置
+                    (m) <sup
+                        style="font-family: 'Times New Roman', Times, serif;">9</sup></span>
+                <div style="margin-left:2px">
+                    <textarea class="form-control" rows="2" name="xs"
+                        value="{{xs}}"
+                        style="font-family:'Times New Roman';width:431px;font-size:14px;resize:none">{{xs}}</textarea>
+                </div>
+            </div>
+            <div class="input-group">
+                <span
+                    style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">水深剖面的水深
+                    (m) <sup>10</sup></span>
+                <div style="margin-left:38px">
+                    <textarea class="form-control" rows="2" name="d0"
+                        value="{{d0}}"
+                        style="font-family:'Times New Roman';width:432px;font-size:14px;resize:none">{{d0}}</textarea>
+                </div>
+            </div>
+            <div class="input-group">
+                <span
+                    style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">综合摩阻系数
+                    <sup>11</sup></span>
+                <div style="margin-left:10px">
+                    <input type=" text" class="form-control" name="Ksb"
+                        value="{{Ksb}}"
+                        style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:66px;border-radius:5px">
+                </div>
+                &nbsp&nbsp&nbsp
+                <span
+                    style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:10px">查看风壅增水的位置
+                    (m)
+                    <sup>12</sup></span>
+                <div style="margin-left:10px"><input type=" text"
+                        class="form-control" name="xlook" value="{{xlook}}"
+                        style="font-family:'Times New Roman';height:25px;width:116px;font-size:14px;margin-left:-4px;border-radius:5px">
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    <div>{% elif o5 == "0" %}
+        <label for="是否计算风壅增水?" class="form-label"
+            style="font-family:楷体;font-size:14px;margin-left:6px">是否有水深剖面数据（直到风壅增水为零的位置）?
+            <sup
+                style="font-family: 'Times New Roman', Times, serif;">8</sup></label>
+        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="inlineRadio1"
+                name="o5" value="1">
+            <label class="form-check-label" for="inlineRadio1"
+                style="font-family:楷体;font-size:14px;">是</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="inlineRadio2"
+                name="o5" value="0" checked>
+            <label class="form-check-label" for="inlineRadio2"
+                style="font-family:楷体;font-size:14px;">否</label>
+        </div>
+        <br />
+        <label for="水域底坡特点?" class="form-label"
+            style="font-family:楷体;font-size:14px;margin-left:6px">水域底坡特点?</label>
+        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        <div class="form-check form-check-inline" style="margin-left:31px">
+            <input class="form-check-input" type="radio" id="inlineRadio1"
+                name="o4" value="1" disabled="disabled">
+            <label class="form-check-label" for="inlineRadio1"
+                style="font-family:楷体;font-size:14px;">恒定坡</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="inlineRadio2"
+                name="o4" value="0" disabled="disabled">
+            <label class="form-check-label" for="inlineRadio2"
+                style="font-family:楷体;font-size:14px;">非恒定坡</label>
+        </div>
+        <div class="input-group">
+            <span
+                style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">水深剖面水深点的位置
+                (m) <sup
+                    style="font-family: 'Times New Roman', Times, serif;">9</sup></span>
+            <div style="margin-left:2px">
+                <textarea class="form-control" rows="2" name="xs" value="{{xs}}"
+                    disabled="disabled"
+                    style="font-family:'Times New Roman';width:431px;font-size:14px;resize:none"></textarea>
+            </div>
+        </div>
+        <div class="input-group">
+            <span
+                style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">水深剖面的水深
+                (m) <sup>10</sup></span>
+            <div style="margin-left:38px">
+                <textarea class="form-control" rows="2" name="d0" value="{{d0}}"
+                    disabled="disabled"
+                    style="font-family:'Times New Roman';width:432px;font-size:14px;resize:none"></textarea>
+            </div>
+        </div>
+        <div class="input-group">
+            <span
+                style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">综合摩阻系数
+                <sup>11</sup></span>
+            <div style="margin-left:10px">
+                <input type=" text" class="form-control" name="Ksb"
+                    value="{{Ksb}}" disabled="disabled"
+                    style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:66px;border-radius:5px">
+            </div>
+            &nbsp&nbsp&nbsp
+            <span
+                style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:10px">查看风壅增水的位置
+                (m)
+                <sup>12</sup></span>
+            <div style="margin-left:10px"><input type=" text"
+                    class="form-control" name="xlook" value="{{xlook}}"
+                    disabled="disabled"
+                    style="font-family:'Times New Roman';height:25px;width:116px;font-size:14px;margin-left:-4px;border-radius:5px">
+            </div>
+        </div>
+    </div>
+    <div>{% else %}
+        <label for="是否计算风壅增水?" class="form-label"
+            style="font-family:楷体;font-size:14px;margin-left:6px">是否有水深剖面数据（直到风壅增水为零的位置）?
+            <sup
+                style="font-family: 'Times New Roman', Times, serif;">8</sup></label>
+        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="inlineRadio1"
+                name="o5" value="1" disabled="disabled">
+            <label class="form-check-label" for="inlineRadio1"
+                style="font-family:楷体;font-size:14px;">是</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="inlineRadio2"
+                name="o5" value="0" disabled="disabled">
+            <label class="form-check-label" for="inlineRadio2"
+                style="font-family:楷体;font-size:14px;">否</label>
+        </div>
+        <br />
+        <label for="水域底坡特点?" class="form-label"
+            style="font-family:楷体;font-size:14px;margin-left:6px">水域底坡特点?</label>
+        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        <div class="form-check form-check-inline" style="margin-left:31px">
+            <input class="form-check-input" type="radio" id="inlineRadio1"
+                name="o4" value="1" disabled="disabled">
+            <label class="form-check-label" for="inlineRadio1"
+                style="font-family:楷体;font-size:14px;">恒定坡</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="inlineRadio2"
+                name="o4" value="0" disabled="disabled">
+            <label class="form-check-label" for="inlineRadio2"
+                style="font-family:楷体;font-size:14px;">非恒定坡</label>
+        </div>
+        <div class="input-group">
+            <span
+                style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">水深剖面水深点的位置
+                (m) <sup
+                    style="font-family: 'Times New Roman', Times, serif;">9</sup></span>
+            <div style="margin-left:2px">
+                <textarea class="form-control" rows="2" name="xs" value="{{xs}}"
+                    disabled="disabled"
+                    style="font-family:'Times New Roman';width:431px;font-size:14px;resize:none"></textarea>
+            </div>
+        </div>
+        <div class="input-group">
+            <span
+                style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">水深剖面的水深
+                (m) <sup>10</sup></span>
+            <div style="margin-left:38px">
+                <textarea class="form-control" rows="2" name="d0" value="{{d0}}"
+                    disabled="disabled"
+                    style="font-family:'Times New Roman';width:432px;font-size:14px;resize:none"></textarea>
+            </div>
+        </div>
+        <div class="input-group">
+            <span
+                style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">综合摩阻系数
+                <sup>11</sup></span>
+            <div style="margin-left:10px">
+                <input type=" text" class="form-control" name="Ksb"
+                    value="{{Ksb}}" disabled="disabled"
+                    style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:66px;border-radius:5px">
+            </div>
+            &nbsp&nbsp&nbsp
+            <span
+                style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:10px">查看风壅增水的位置
+                (m)
+                <sup>12</sup></span>
+            <div style="margin-left:10px"><input type=" text"
+                    class="form-control" name="xlook" value="{{xlook}}"
+                    disabled="disabled"
+                    style="font-family:'Times New Roman';height:25px;width:116px;font-size:14px;margin-left:-4px;border-radius:5px">
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
 </div>
-<div class="form-check form-check-inline">
-    <input class="form-check-input" type="radio" id="inlineRadio2" name="o5"
-        value="0" disabled="disabled">
-    <label class="form-check-label" for="inlineRadio2"
-        style="font-family:楷体;font-size:14px;">否</label>
-</div>
-<br />
-<label for="水域底坡特点?" class="form-label"
-    style="font-family:楷体;font-size:14px;margin-left:6px">水域底坡特点?</label>
-&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-<div class="form-check form-check-inline" style="margin-left:31px">
-    <input class="form-check-input" type="radio" id="inlineRadio1" name="o4"
-        value="1" disabled="disabled">
-    <label class="form-check-label" for="inlineRadio1"
-        style="font-family:楷体;font-size:14px;">恒定坡</label>
-</div>
-<div class="form-check form-check-inline">
-    <input class="form-check-input" type="radio" id="inlineRadio2" name="o4"
-        value="0" disabled="disabled">
-    <label class="form-check-label" for="inlineRadio2"
-        style="font-family:楷体;font-size:14px;">非恒定坡</label>
-</div>
-<div class="input-group">
-    <span
-        style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">水深剖面水深点的位置
-        (m) <sup
-            style="font-family: 'Times New Roman', Times, serif;">9</sup></span>
-    <div style="margin-left:2px">
-        <textarea class="form-control" rows="2" name="ssd" value="{{ssd}}"
-            disabled="disabled"
-            style="width:431px;font-size:14px;resize:none"></textarea>
-        <!-- <input type=" text" class="form-control" name="ssd" value="{{ssd}}"
-            disabled="disabled"
-            style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:72px;border-radius:5px"> -->
+<div>{% elif o2 == "0" %}
+    <label for="是否计算风壅增水?" class="form-label"
+        style="font-family:楷体;font-size:14px;margin-left:6px">是否有水深剖面数据（直到风壅增水为零的位置）?
+        <sup
+            style="font-family: 'Times New Roman', Times, serif;">8</sup></label>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" id="inlineRadio1" name="o5"
+            value="1" disabled="disabled">
+        <label class="form-check-label" for="inlineRadio1"
+            style="font-family:楷体;font-size:14px;">是</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" id="inlineRadio2" name="o5"
+            value="0" disabled="disabled">
+        <label class="form-check-label" for="inlineRadio2"
+            style="font-family:楷体;font-size:14px;">否</label>
+    </div>
+    <br />
+    <label for="水域底坡特点?" class="form-label"
+        style="font-family:楷体;font-size:14px;margin-left:6px">水域底坡特点?</label>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <div class="form-check form-check-inline" style="margin-left:31px">
+        <input class="form-check-input" type="radio" id="inlineRadio1" name="o4"
+            value="1" disabled="disabled">
+        <label class="form-check-label" for="inlineRadio1"
+            style="font-family:楷体;font-size:14px;">恒定坡</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" id="inlineRadio2" name="o4"
+            value="0" disabled="disabled">
+        <label class="form-check-label" for="inlineRadio2"
+            style="font-family:楷体;font-size:14px;">非恒定坡</label>
+    </div>
+    <div class="input-group">
+        <span
+            style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">水深剖面水深点的位置
+            (m) <sup
+                style="font-family: 'Times New Roman', Times, serif;">9</sup></span>
+        <div style="margin-left:2px">
+            <textarea class="form-control" rows="2" name="xs" value="{{xs}}"
+                disabled="disabled"
+                style="font-family:'Times New Roman';width:431px;font-size:14px;resize:none"></textarea>
+        </div>
+    </div>
+    <div class="input-group">
+        <span
+            style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">水深剖面的水深
+            (m) <sup>10</sup></span>
+        <div style="margin-left:38px">
+            <textarea class="form-control" rows="2" name="d0" value="{{d0}}"
+                disabled="disabled"
+                style="font-family:'Times New Roman';width:432px;font-size:14px;resize:none"></textarea>
+        </div>
+    </div>
+    <div class="input-group">
+        <span
+            style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">综合摩阻系数
+            <sup>11</sup></span>
+        <div style="margin-left:10px">
+            <input type=" text" class="form-control" name="Ksb" value="{{Ksb}}"
+                disabled="disabled"
+                style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:66px;border-radius:5px">
+        </div>
+        &nbsp&nbsp&nbsp
+        <span
+            style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:10px">查看风壅增水的位置
+            (m)
+            <sup>12</sup></span>
+        <div style="margin-left:10px"><input type=" text" class="form-control"
+                name="xlook" value="{{xlook}}" disabled="disabled"
+                style="font-family:'Times New Roman';height:25px;width:116px;font-size:14px;margin-left:-4px;border-radius:5px">
+        </div>
     </div>
 </div>
-<div class="input-group">
-    <span
-        style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">水深剖面的水深
-        (m) <sup>10</sup></span>
-    <div style="margin-left:38px">
-        <textarea class="form-control" rows="2" name="ss" value="{{ss}}"
-            disabled="disabled"
-            style="width:432px;font-size:14px;resize:none"></textarea>
-        <!-- <input type=" text" class="form-control" name="ss" value="{{ss}}"
-            disabled="disabled"
-            style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:72px;border-radius:5px"> -->
+<div>{% else %}
+    <label for="是否计算风壅增水?" class="form-label"
+        style="font-family:楷体;font-size:14px;margin-left:6px">是否有水深剖面数据（直到风壅增水为零的位置）?
+        <sup
+            style="font-family: 'Times New Roman', Times, serif;">8</sup></label>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" id="inlineRadio1" name="o5"
+            value="1" disabled="disabled">
+        <label class="form-check-label" for="inlineRadio1"
+            style="font-family:楷体;font-size:14px;">是</label>
     </div>
-</div>
-<div class="input-group">
-    <span
-        style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">综合摩阻系数
-        <sup>11</sup></span>
-    <div style="margin-left:10px">
-        <input type=" text" class="form-control" name="Ksb" value="{{Ksb}}"
-            disabled="disabled"
-            style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:66px;border-radius:5px">
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" id="inlineRadio2" name="o5"
+            value="0" disabled="disabled">
+        <label class="form-check-label" for="inlineRadio2"
+            style="font-family:楷体;font-size:14px;">否</label>
     </div>
-    &nbsp&nbsp&nbsp
-    <span
-        style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:10px">查看风壅增水的位置
-        (m)
-        <sup>12</sup></span>
-    <div style="margin-left:10px"><input type=" text" class="form-control"
-            name="sy" value="{{sy}}" disabled="disabled"
-            style="font-family:'Times New Roman';height:25px;width:116px;font-size:14px;margin-left:-4px;border-radius:5px">
+    <br />
+    <label for="水域底坡特点?" class="form-label"
+        style="font-family:楷体;font-size:14px;margin-left:6px">水域底坡特点?</label>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <div class="form-check form-check-inline" style="margin-left:31px">
+        <input class="form-check-input" type="radio" id="inlineRadio1" name="o4"
+            value="1" disabled="disabled">
+        <label class="form-check-label" for="inlineRadio1"
+            style="font-family:楷体;font-size:14px;">恒定坡</label>
     </div>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" id="inlineRadio2" name="o4"
+            value="0" disabled="disabled">
+        <label class="form-check-label" for="inlineRadio2"
+            style="font-family:楷体;font-size:14px;">非恒定坡</label>
+    </div>
+    <div class="input-group">
+        <span
+            style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">水深剖面水深点的位置
+            (m) <sup
+                style="font-family: 'Times New Roman', Times, serif;">9</sup></span>
+        <div style="margin-left:2px">
+            <textarea class="form-control" rows="2" name="xs" value="{{xs}}"
+                disabled="disabled"
+                style="font-family:'Times New Roman';width:431px;font-size:14px;resize:none"></textarea>
+        </div>
+    </div>
+    <div class="input-group">
+        <span
+            style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">水深剖面的水深
+            (m) <sup>10</sup></span>
+        <div style="margin-left:38px">
+            <textarea class="form-control" rows="2" name="d0" value="{{d0}}"
+                disabled="disabled"
+                style="font-family:'Times New Roman';width:432px;font-size:14px;resize:none"></textarea>
+        </div>
+    </div>
+    <div class="input-group">
+        <span
+            style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">综合摩阻系数
+            <sup>11</sup></span>
+        <div style="margin-left:10px">
+            <input type=" text" class="form-control" name="Ksb" value="{{Ksb}}"
+                disabled="disabled"
+                style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:66px;border-radius:5px">
+        </div>
+        &nbsp&nbsp&nbsp
+        <span
+            style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:10px">查看风壅增水的位置
+            (m)
+            <sup>12</sup></span>
+        <div style="margin-left:10px"><input type=" text" class="form-control"
+                name="xlook" value="{{xlook}}" disabled="disabled"
+                style="font-family:'Times New Roman';height:25px;width:116px;font-size:14px;margin-left:-4px;border-radius:5px">
+        </div>
+    </div>
+    {% endif %}
 </div>

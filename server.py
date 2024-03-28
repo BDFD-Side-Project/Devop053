@@ -2,7 +2,7 @@
 Date         : 2023-01-16 11:31:15
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2024-03-05 10:48:25
+LastEditTime : 2024-03-26 14:16:38
 LastEditors  : <BDFD>
 Description  : 
 FilePath     : \server.py
@@ -11,6 +11,7 @@ Copyright (c) 2023 by BDFD, All Rights Reserved.
 # This is the flask server of waterfrontes.com 滨水工
 # from distutils.log import debpytug
 from flask import Flask, send_file, redirect, render_template, url_for, request, flash
+from execdata.format import convint as s2int, convfloat as s2dec
 import WES_Calculation as wes
 
 app = Flask(__name__)
@@ -241,9 +242,94 @@ def windspeedhelp():
     return render_template("instructions/windspeedhelp.html")
 
 
-@app.route("/wws.html")
+@app.route("/wws.html", methods=["POST", "GET"])
 def wws():
-    return render_template("wws.html")
+    if request.method == "POST":
+        # Wind-generated Wave
+        # Inputs
+        input_dic = {}
+        input_dic.update({"o1": " ", "ad": " ", "X": " ", "U10k": " ",
+                          "atm": " ", "atr": " ", "wdu": " ", "o2": " ",
+                          "beta": " ", "slc": " ", "o4": " ", "o5": " ",
+                          "xs": " ", "d0": " ", "Ksb": " ", "xlook": " "})
+        # Primary
+        # catagory of water environment: 1 open ocean or coastal (not enclosed) waters, 2 almost enclosed coastal waters (including bays or estuaries), 3 lakes or reserviors
+        o1 = request.form["o1"]
+        input_dic.update({"o1": o1})
+        # None # average water depth (m), None for assumed deep water or a positive value for a finite water depth
+        # print("ad is ",request.form["ad"])
+        ad = request.form["ad"]
+        if not ad.strip():
+            ad = "默认为深水"
+        elif ad == "None":
+            ad = "默认为深水"
+        else:
+            ad = ad
+        input_dic.update({"ad": ad})
+        X = request.form["X"]  # 24.4#20#10 # fetch length (km)
+        # 30.86#30#14.195#20/1.25 # 30# A known U10 (m/s)
+        U10k = request.form["U10k"]
+        # averaging time of U10 (min) (A wanrning will show if it<=1/60 or it>=600!!)
+        atm = request.form["atm"]
+        # required averaging time of windspped (min) (A wanrning will show if it<=1/60 or it>=600!!)
+        atr = request.form["atr"]
+        # 4.5*60 # wind duration to be considered (min) (A wanrning will show if it<=1/60 or it>=600!!)
+        wdu = request.form["wdu"]
+        input_dic.update({"X": X, "U10k": U10k, "atm": atm,
+                          "atr": atr, "wdu": wdu})
+        # Replace 1 For 'Yes' Situtation  # whether to calculate wind setup? Yes or No
+        o2 = request.form["o2"]
+        # beta=0 # the angle of incidence (from the shoreline normal). 0 means that the incident wave is pertenticular to the shoreline.
+        input_dic.update({"o2": o2})
+        if o2 == "1":
+            beta = request.form["beta"]
+            if not beta.strip():
+                beta = 0
+            else:
+                beta = beta
+            slc = request.form["slc"]
+            if not slc.strip():
+                slc = 0
+            else:
+                slc = slc
+            input_dic.update({"beta": beta, "slc": slc})
+            if o1 == "1":
+                o5 = request.form["o5"]
+                input_dic.update({"o5": o5, })
+                if o5 == "1":
+                    o4 = request.form["o4"]
+                    xs = request.form["xs"]
+                    d0 = request.form["d0"]
+                    Ksb = request.form["Ksb"]
+                    if not Ksb.strip():
+                        Ksb = 0.0000036
+                    else:
+                        Ksb = Ksb
+                    xlook = request.form["xlook"]
+                    if not xlook.strip():
+                        xlook = 0
+                    else:
+                        xlook = xlook
+                    input_dic.update(
+                        {"o4": o4, "xs": xs, "d0": d0, "Ksb": Ksb, "xlook": xlook})
+        # catagory of known windspeed: #1) low-level overwater wind; 2) low-level overland wind (onshore wind at an anemometer immediately adjacent to water);
+        # o2 = 3
+        # 3) low-level overland wind (other scenarios); 4) geostrophic winds
+        print(input_dic)
+        result = wes.ww(input_dic)
+        # print((input_dic["xs"]))
+        # print((input_dic["d0"]))
+        print('Hello World!')
+        return render_template("wws.html", o1=input_dic["o1"], ad=input_dic["ad"], X=input_dic["X"],
+                               U10k=input_dic["U10k"], atm=input_dic["atm"], atr=input_dic["atr"],
+                               wdu=input_dic["wdu"], o2=input_dic["o2"], beta=input_dic["beta"], slc=input_dic["slc"],
+                               o4=input_dic["o4"], o5=input_dic["o5"], xs=input_dic["xs"],
+                               d0=input_dic["d0"], Ksb=input_dic["Ksb"], xlook=input_dic["xlook"],
+                               heading=result[0], section1=result[1], section2=result[2], section3=result[3],
+                               section4=result[4], section5=result[5], section6=result[6], section7=result[7],
+                               section8_heading=result[8], section8=result[9], ending=result[10])
+    else:
+        return render_template("wws.html")
 
 
 @app.route("/wwsupdate.html")

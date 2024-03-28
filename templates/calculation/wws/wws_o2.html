@@ -2,12 +2,86 @@
  * @Date         : 2024-03-05 18:42:12
  * @Author       : BDFD,bdfd2005@gmail.com
  * @Github       : https://github.com/bdfd
- * @LastEditTime : 2024-03-07 20:16:03
+ * @LastEditTime : 2024-03-19 13:22:19
  * @LastEditors  : <BDFD>
  * @Description  : 
  * @FilePath     : \templates\calculation\wws\wws_o2.html
  * Copyright (c) 2024 by BDFD, All Rights Reserved. 
 -->
+{% if o2 == "1" %}
+<label for="是否计算风壅增水？" class="form-label"
+    style="font-family:楷体,'Times New Roman';font-size:14px;margin-left:6px">是否计算风壅增水?
+    <sup style="font-family: 'Times New Roman', Times, serif;">6</sup></label>
+&nbsp&nbsp&nbsp&nbsp&nbsp
+<div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" id="inlineRadio1" name="o2"
+        value="1" checked>
+    <label class="form-check-label" for="inlineRadio1"
+        style="font-family:楷体;font-size:14px;">是</label>
+</div>
+<div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" id="inlineRadio2" name="o2"
+        value="0" style="margin-left:5px">
+    <label class="form-check-label" for="inlineRadio2"
+        style="font-family:楷体;font-size:14px;margin-left:5px">否</label>
+</div>
+<div class="input-group">
+    <span
+        style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">风向入射角
+        (°) <sup
+            style="font-family: 'Times New Roman', Times, serif;">7</sup></span>
+    <div style="margin-left:4px">
+        <input type=" text" class="form-control" name="beta" value="{{beta}}"
+             
+            style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:74px;border-radius:5px">
+    </div>
+    &nbsp&nbsp&nbsp
+    <span
+        style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:10px">堤顶距静水面的高度
+        (m)</span>
+    <div style="margin-left:15px"><input type=" text" class="form-control"
+            name="slc" value="{{slc}}" 
+            style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:5px;border-radius:5px">
+    </div>
+</div>
+{% elif o2 == "0" %}
+<br />
+<label for="是否计算风壅增水？" class="form-label"
+    style="font-family:楷体,'Times New Roman';font-size:14px;margin-left:6px">是否计算风壅增水?
+    <sup style="font-family: 'Times New Roman', Times, serif;">6</sup></label>
+&nbsp&nbsp&nbsp&nbsp&nbsp
+<div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" id="inlineRadio1" name="o2"
+        value="1">
+    <label class="form-check-label" for="inlineRadio1"
+        style="font-family:楷体;font-size:14px;">是</label>
+</div>
+<div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" id="inlineRadio2" name="o2"
+        value="0" style="margin-left:5px" checked>
+    <label class="form-check-label" for="inlineRadio2"
+        style="font-family:楷体;font-size:14px;margin-left:5px">否</label>
+</div>
+<div class="input-group">
+    <span
+        style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">风向入射角
+        (°) <sup
+            style="font-family: 'Times New Roman', Times, serif;">7</sup></span>
+    <div style="margin-left:4px">
+        <input type=" text" class="form-control" name="beta" value="{{beta}}"
+            disabled="disabled"
+            style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:74px;border-radius:5px">
+    </div>
+    &nbsp&nbsp&nbsp
+    <span
+        style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:10px">堤顶距静水面的高度
+        (m)</span>
+    <div style="margin-left:15px"><input type=" text" class="form-control"
+            name="slc" value="{{slc}}" disabled="disabled"
+            style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:5px;border-radius:5px">
+    </div>
+</div>
+{% else %}
 <br />
 <label for="是否计算风壅增水？" class="form-label"
     style="font-family:楷体,'Times New Roman';font-size:14px;margin-left:6px">是否计算风壅增水?
@@ -44,3 +118,4 @@
             style="font-family:'Times New Roman';height:25px;width:115px;font-size:14px;margin-left:5px;border-radius:5px">
     </div>
 </div>
+{% endif %}
