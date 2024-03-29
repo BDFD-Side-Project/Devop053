@@ -17,12 +17,13 @@
         style="font-family: 'Times New Roman',楷体;">
         <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
             <div style="margin-left:10px">
-                后续提供<br>
+                本计算程序采用简化的推算方法，包括以下五个规范和手册中的方法：《港口与航道水文规范》(JTS
+                145-2015) 、《堤防工程设计规范》(GB 50286-2013)、《海堤工程设计规范》(GB/T 51015-2014)、Shore Protection Manual (SPM 1984)、Coastal Engineering Manual (CEM 2015)。<br>
             </div>
         </li>
         <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
             <div style="margin-left:10px">
-                后续提供<br>
+                如果不输入，本程序会默认水域为深水。<br>
             </div>
         </li>
         <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
@@ -32,23 +33,23 @@
         </li>
         <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
             <div style="margin-left:10px">
-                后续提供<br>
+                请参照相关规范、标准、手册的要求，并结合实际需要确定。除了SPM 1984的风浪要素推算以外，本程序采用该指定时距的距水面10 m处风速作为计算风速。<br>
             </div>
         </li>
         <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
             <div style="margin-left:10px">
-                后续提供<br>
+                在推算风壅增水时，不考虑风时的作用。<br>
             </div>
         </li>
         <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
             <div style="margin-left:10px">
-                本计算程序考虑两种近似推算方法，一个是基于近似封闭水域和均匀水深假设的高度简化计算，另一个是结合水深剖面的逐段推算。前者见于《港口与航道水文规范》(JTS
-                145-2015) 和《堤防工程设计规范》(GB 50286-2013)。后者可用于上风向非常开阔、无掩护的水域。<br>
+                本程序仅计算岸线法向（即垂直于岸线方向）的风壅增水，包含两种近似推算方法，一种是基于近似封闭水域和均匀水深假设的高度简化计算，另一种是结合水深剖面的逐段推算。前者见于JTS
+                145-2015 和GB 50286-2013，适用于本程序中的第2、3类水域。后者针对上风向非常开阔、无掩护的水域，适用于本程序中的第1类水域。<br>
             </div>
         </li>
         <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
             <div style="margin-left:10px">
-                来风向与岸线法线的夹角。（如来风向垂直于岸线，该夹角为零。）<br>
+                来风向与岸线法向的夹角。（如风沿法向吹向岸线，该夹角为零。以逆时针为正。）<br>
             </div>
         </li>
         <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
@@ -58,21 +59,20 @@
         </li>
         <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
             <div style="margin-left:10px">
-                即水深点与静水面接岸处的距离。基点位于静水面接岸处。不要输入基点。由岸向水逐个输入。如果水域底坡为恒定坡，仅输入风壅增水假设为零的位置。数据格式为间隔的数值和逗号，由数值起始，并以数值结束。必须输入半角的逗号，不能用全角的逗号。示例：10,
-                15., 18.3,..., 8.0, 21
+                即水深点与静水面接岸处的距离。基点位于静水面接岸处。不要输入基点。由岸向水逐个输入。如果水域底坡为恒定坡，仅输入风壅增水假设为零的位置。数据格式为间隔的数值和逗号，由数值起始，并以数值结束，两个数值之间不得有空格。必须输入半角的逗号，不能用全角的逗号。示例：10,25.,88.3,...,150.0,2100
                 <br>
             </div>
         </li>
         <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
             <div style="margin-left:10px">
-                基点位置的水深已默认为零。不要输入基点。由岸向水逐个输入，与以上水深点的位置一一对应。如果水域底坡为恒定坡，仅输入风壅增水假设为零位置的水深。格式见以上第4条。
+                基点位置的水深已默认为零。不要输入基点。由岸向水逐个输入，与以上水深点的位置一一对应。如果水域底坡为恒定坡，仅输入风壅增水假设为零位置的水深。水深值必须大于0。格式见以上第9条。
                 <br>
             </div>
         </li>
         <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
             <div style="margin-left:10px">
                 仅用于结合水深剖面的逐段推算。JTS 145-2015 和 GB 50286-2013采用
-                3.6×10<sup>-6</sup>。如果不输入，程序会自动采用 3.6×10<sup>-6</sup>。
+                3.6×10<sup>-6</sup>。如果不输入，本程序会自动采用 3.6×10<sup>-6</sup>。
                 <br>
             </div>
         </li>
