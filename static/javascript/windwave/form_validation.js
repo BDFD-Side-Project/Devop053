@@ -165,7 +165,7 @@ function validateForm() {
 			document.WWSForm.wdu.focus();
 			return false;
 		case !wdu.match(pos_real_number) || parseFloat(wdu) <= 0:
-			alert("该数值必须大于0");
+			alert("该数值必须大于0。");
 			document.WWSForm.wdu.focus();
 			return false;
 	}
@@ -239,7 +239,7 @@ function validateForm() {
 				}
 
 				if (!o4_isChecked) {
-					alert("请选择'水域底坡特点。'");
+					alert("请选择'水深剖面底坡特点'。");
 					document.WWSForm.o4[0].focus();
 					return false; // Prevent form submission
 				}
